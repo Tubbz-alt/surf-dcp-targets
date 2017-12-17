@@ -13,7 +13,6 @@
 > https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 
 4) Setup for large filesystems on github
-> $ git lfs install
 
 ```$ git lfs install```
 

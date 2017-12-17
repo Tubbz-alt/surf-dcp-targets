@@ -1,0 +1,6 @@
+[submodule "firmware/ruckus"]
+	path = firmware/ruckus
+	url = git@github.com:slaclab/ruckus
+[submodule "firmware/surf"]
+	path = firmware/surf
+	url = git@github.com:slaclab/surf

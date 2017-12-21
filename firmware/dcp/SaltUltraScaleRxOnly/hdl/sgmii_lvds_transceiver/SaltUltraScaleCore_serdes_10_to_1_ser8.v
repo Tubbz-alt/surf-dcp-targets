@@ -61,13 +61,14 @@ input			reset ;				// Asynchronous active high reset line
 input			inter_clk ;			// Clock at line rate divided by 4 = 312.5 MHz for SGMII
 input			system_clk ;			// Clock at system rate, ie line rate divided by 10 = 125 MHz for SGMII
 input		[9:0]	datain ;			// 10-bit Data for output
-output			dataout_p ;			// differential output data
-output			dataout_n ;			// differential output data
+output		dataout_p ;			// differential output data
+output		dataout_n ;			// differential output data
 
 	
 wire 	[3:0]		dataint ;	
 wire 			tx_clk_out ;
 wire			local_reset ;
+wire      tx_data_out;
 
 //always @ (posedge inter_clk or posedge reset) begin
 //if (reset == 1'b1) begin

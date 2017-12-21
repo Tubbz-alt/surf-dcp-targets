@@ -60,19 +60,19 @@ parameter       	BIT_TIME = 800 ;   		// Parameter to set the input bit time in 
                                   	                                   
 input			datain_p ;			// Input from LVDS receiver pin
 input			datain_n ;			// Input from LVDS receiver pin
-input			rxclk ;				// Sampling clock = 625 MHz for SGMII
-input			rxclk_div4 ;			// Sampling clock divided by 2 = 312.5 MHz for SGMII
-input			rxclk_div10 ;			// Sampling clock divided by 5 = 125 MHz for SGMII
-input			idelay_rdy ;			// High when input delays are ready
-input			reset ;				// Asynchrnous reset line
-output		[9:0]	rx_data ;			// Output data synchronous to rxclk_div10
-output 	reg	[9:0]	al_rx_data ;			// Aligned output data synchronous to rxclk_div10
-output	reg		comma ; 			// comma received
-input		[6:0]	debug_in ;			// debug input bus, default to 7'b0010000	
+input			rxclk ;			  	// Sampling clock = 625 MHz for SGMII
+input			rxclk_div4 ;		// Sampling clock divided by 2 = 312.5 MHz for SGMII
+input			rxclk_div10 ;	  // Sampling clock divided by 5 = 125 MHz for SGMII
+input			idelay_rdy ;		// High when input delays are ready
+input			reset ;				  // Asynchrnous reset line
+output		[9:0]	rx_data ;	// Output data synchronous to rxclk_div10
+output 	reg	[9:0]	al_rx_data ;	// Aligned output data synchronous to rxclk_div10
+output	reg		comma ; 		    	// comma received
+input		[6:0]	debug_in ;			  // debug input bus, default to 7'b0010000	
 output		[45:0]	debug ;				// Debug output bus
 output			dummy_out ;
 output		[127:0]	results ;			// eye monitor result data	
-output		[127:0]	m_delay_1hot ;			// Master delay control value as a one-hot vector
+output		[127:0]	m_delay_1hot ;// Master delay control value as a one-hot vector
   		
 wire	[7:0]		serdesm ;
 wire	[7:0]		serdess ;
@@ -80,36 +80,41 @@ wire	[8:0]		m_delay_val_in ;
 wire	[8:0]		s_delay_val_in ;
 wire	[8:0]		m_delay_val_out ;
 wire	[8:0]		s_delay_val_out ;
-wire			rx_data_in_p ;
-wire			rx_data_in_n ;
-wire			rx_data_in_m ;
-wire			rx_data_in_s ;
-wire			rx_data_in_md ;
-wire			rx_data_in_sd ;
+wire	    		rx_data_in_p ;
+wire	    		rx_data_in_n ;
+wire	    		rx_data_in_m ;
+wire	    		rx_data_in_s ;
+wire	    		rx_data_in_md ;
+wire	    		rx_data_in_sd ;
 wire	[3:0]		mdataout ;
 wire	[3:0]		mdataoutd ;		
 wire	[3:0]		sdataout ;
-wire			not_rxclk ;
+wire		    	not_rxclk ;
 wire	[6:0]		bt_val ;
 wire	[1:0]		hreg ;
-wire			local_reset ;
-wire			reset_sync ;
-reg	[3:0]		mpx ;
-reg	[19:0]		rxdh ;
+wire	    		local_reset ;
+wire	    		reset_sync_1 ;
+wire	    		reset_sync_2 ;
+wire	    		reset_sync ;
+reg	  [3:0]	  mpx ;
+reg	  [19:0]	rxdh ;
 wire	[9:0]		hdataout ;
-wire			rxclk_d ;
+wire		      rxclk_d ;
 wire	[8:0]		bt_val_raw ;
-reg	[8:0]		bt_val_rawa ;
-wire			mload ;
-wire			sload ;
-reg	[8:0]		count_in ;
-wire			rxclk_int ;
-reg			rxclk_r ;
-reg			rxclk_rd ;
-reg	[3:0]		small_count ;
-reg			phase ;
-reg	[8:0]		temp ;
-wire reset_n_idelay_rdy;
+reg	  [8:0]		bt_val_rawa ;
+wire	    		mload ;
+wire	    		sload ;
+reg	  [8:0]		count_in ;
+wire	    		rxclk_int ;
+reg			      rxclk_r ;
+reg			      rxclk_rd ;
+reg	  [3:0]		small_count ;
+reg		      	phase ;
+reg	  [8:0]		temp ;
+wire          reset_n_idelay_rdy;
+wire          rxclk_from_odelay;
+wire          rxclk_idelay_out;
+
 assign debug = {rxclk_r, ~serdess, serdesm, sload, mload, s_delay_val_out, m_delay_val_out, bt_val_rawa} ;
 //                45       44:37    36:29    28      27        26:18             17:9           8:0
 //bit_time_value <= bt_val ;
@@ -121,20 +126,24 @@ assign reset_n_idelay_rdy = reset || (~idelay_rdy);
      .reset_in  (reset_n_idelay_rdy),
      .reset_out (local_reset)
   );
-  SaltUltraScaleCore_reset_sync reset_rxclk_div4 (
+
+ // stretching the reset to 18 clock cycles(3.2ns) so that minimum reset width requirement of 52ns is met on IDELAY.
+  SaltUltraScaleCore_reset_sync reset_rxclk_div4_1 (
      .clk       (rxclk_div4),
      .reset_in  (reset),
+     .reset_out (reset_sync_1)
+  );
+  SaltUltraScaleCore_reset_sync reset_rxclk_div4_2 (
+     .clk       (rxclk_div4),
+     .reset_in  (reset_sync_1),
+     .reset_out (reset_sync_2)
+  );
+  SaltUltraScaleCore_reset_sync reset_rxclk_div4 (
+     .clk       (rxclk_div4),
+     .reset_in  (reset_sync_2),
      .reset_out (reset_sync)
   );
 
-//always @ (posedge rxclk_div4 or posedge reset) begin				// generate local reset
-//if (reset == 1'b1) begin
-//	local_reset <= 1'b1 ;
-//end
-//else begin
-//	local_reset <= ~idelay_rdy ;
-//end
-//end
 
 assign rx_data = hdataout ;
 
@@ -168,21 +177,21 @@ end
 SaltUltraScaleCore_delay_controller_wrap # (
 	.S 			(4))
 dc_inst (                       
-	.m_datain		(mdataout),
-	.s_datain		(sdataout),
+	.m_datain           		(mdataout),
+	.s_datain           		(sdataout),
 	.enable_phase_detector	(1'b1),
-	.enable_monitor		(1'b0),
-	.reset			(local_reset),
-	.clk			(rxclk_div4),
-	.c_delay_in		({1'b0, bt_val[6:1], 2'h0}),
-	.m_delay_out		(m_delay_val_in),
-	.mload			(mload),
-	.s_delay_out		(s_delay_val_in),
-	.sload			(sload),
-	.data_out		(mdataoutd),
-	.bt_val			(bt_val),
-	.results		(results),
-	.m_delay_1hot		(m_delay_1hot)) ;
+	.enable_monitor     		(1'b0),
+	.reset            			(local_reset),
+	.clk	              		(rxclk_div4),
+	.c_delay_in		          ({1'b0, bt_val[6:1], 2'h0}),
+	.m_delay_out	        	(m_delay_val_in),
+	.mload		            	(mload),
+	.s_delay_out		        (s_delay_val_in),
+	.sload		            	(sload),
+	.data_out	            	(mdataoutd),
+	.bt_val		            	(bt_val),
+	.results	            	(results),
+	.m_delay_1hot	        	(m_delay_1hot)) ;
 
 SaltUltraScaleCore_gearbox_4_to_10 # (
 	.D			(1))
@@ -293,7 +302,7 @@ ODELAYE3  #(					// reference delay block set for 800 pS
 	.REFCLK_FREQUENCY	(REF_FREQ/2),
 	.CASCADE 		("NONE"),
       	.DELAY_TYPE		("FIXED"))
-odelay_cal(                       
+odelay_cal_dummy(                       
 	.DATAOUT		(dummy_out),
 	.CLK			(rxclk_div4),
 	.CE			(1'b0),
@@ -308,15 +317,14 @@ odelay_cal(
 	.CNTVALUEIN		(9'h000),
 	.CNTVALUEOUT		(bt_val_raw));
 	
-assign bt_val = bt_val_rawa[8:2] ;
-//assign bt_val_raw = 9'h0A0 ;
+assign bt_val =  bt_val_rawa[7:1] ;
 
 IDELAYE3 #(
       	.DELAY_FORMAT		("COUNT"),
       	.SIM_DEVICE		("ULTRASCALE"),    
       	.DELAY_VALUE		(0),
       	.REFCLK_FREQUENCY	(REF_FREQ/2),
-	      .CASCADE 		("NONE"),
+	      .CASCADE 	   	("MASTER"),
       	.DELAY_SRC		("DATAIN"),
       	.DELAY_TYPE		("VAR_LOAD"))
 idelay_cal(                
@@ -330,9 +338,30 @@ idelay_cal(
 	.RST			(reset_sync),
 	.EN_VTC			(1'b0),
 	.CASC_IN		(1'b0),
+	.CASC_RETURN (rxclk_from_odelay),
+	.CASC_OUT		 (rxclk_idelay_out),
+	.CNTVALUEIN	 (count_in),
+	.CNTVALUEOUT ());
+ODELAYE3  #(					// reference delay block set for 800 pS
+      	.DELAY_VALUE	   	(0),
+      	.DELAY_FORMAT	  	("COUNT"),
+      	.SIM_DEVICE	    	("ULTRASCALE"),    
+      	.REFCLK_FREQUENCY	(REF_FREQ/2),
+      	.CASCADE 	      	("SLAVE_END"),
+      	.DELAY_TYPE	    	("VAR_LOAD"))
+odelay_cal(                       
+	.DATAOUT		(rxclk_from_odelay),
+	.CLK		   	(rxclk_div4),
+	.CE			    (1'b0),
+	.INC			  (1'b0),
+	.ODATAIN		(),
+	.LOAD			  (1'b1),
+	.RST			  (reset_sync), 
+	.EN_VTC			(1'b0),
+	.CASC_IN		(rxclk_idelay_out),
 	.CASC_RETURN		(1'b0),
-	.CASC_OUT		(),
-	.CNTVALUEIN		(count_in),
+	.CASC_OUT	    	(),
+	.CNTVALUEIN	  	(count_in),
 	.CNTVALUEOUT		());
 
 always @ (posedge rxclk_div4) begin	
@@ -340,7 +369,7 @@ always @ (posedge rxclk_div4) begin
 		count_in <= 9'h000 ;
 		small_count <= 4'h0 ;
 		phase <= 1'b0 ;
-		bt_val_rawa <= 9'h0A0 ;
+		bt_val_rawa <= 9'h050 ;
 		phase <= 1'b0 ;
 	end
 	else begin

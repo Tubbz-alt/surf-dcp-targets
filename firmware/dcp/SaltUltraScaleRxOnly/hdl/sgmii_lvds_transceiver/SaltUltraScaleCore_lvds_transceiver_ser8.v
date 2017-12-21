@@ -83,8 +83,8 @@ input wire          reset, // CLK125
 input wire          soft_tx_reset,
 input wire          soft_rx_reset,
 // Serial input wire and output wire differential pairs
-output wire         pin_sgmii_txn,
-output wire         pin_sgmii_txp,
+// output wire         pin_sgmii_txn,
+// output wire         pin_sgmii_txp,
 input wire          idelay_rdy,
 input wire          pin_sgmii_rxn,
 input wire          pin_sgmii_rxp

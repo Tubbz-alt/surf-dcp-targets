@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2016 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:ip:gig_ethernet_pcs_pma:15.2
--- IP Revision: 0
+-- IP VLNV: xilinx.com:ip:gig_ethernet_pcs_pma:16.0
+-- IP Revision: 1
 
 -- The following code must appear in the VHDL architecture header.
 
@@ -79,6 +79,9 @@ COMPONENT GigEthGthUltraScaleCore
     gmii_rx_er : OUT STD_LOGIC;
     gmii_isolate : OUT STD_LOGIC;
     configuration_vector : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+    an_interrupt : OUT STD_LOGIC;
+    an_adv_config_vector : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    an_restart_config : IN STD_LOGIC;
     status_vector : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     reset : IN STD_LOGIC;
     signal_detect : IN STD_LOGIC
@@ -117,6 +120,9 @@ your_instance_name : GigEthGthUltraScaleCore
     gmii_rx_er => gmii_rx_er,
     gmii_isolate => gmii_isolate,
     configuration_vector => configuration_vector,
+    an_interrupt => an_interrupt,
+    an_adv_config_vector => an_adv_config_vector,
+    an_restart_config => an_restart_config,
     status_vector => status_vector,
     reset => reset,
     signal_detect => signal_detect

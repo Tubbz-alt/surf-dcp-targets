@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2016 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -46,8 +46,8 @@
 // 
 // DO NOT MODIFY THIS FILE.
 
-// IP VLNV: xilinx.com:ip:gig_ethernet_pcs_pma:15.2
-// IP Revision: 0
+// IP VLNV: xilinx.com:ip:gig_ethernet_pcs_pma:16.0
+// IP Revision: 1
 
 // The following must be inserted into your Verilog file for this
 // core to be instantiated. Change the instance name and port connections
@@ -80,6 +80,9 @@ GigEthGthUltraScaleCore your_instance_name (
   .gmii_rx_er(gmii_rx_er),                          // output wire gmii_rx_er
   .gmii_isolate(gmii_isolate),                      // output wire gmii_isolate
   .configuration_vector(configuration_vector),      // input wire [4 : 0] configuration_vector
+  .an_interrupt(an_interrupt),                      // output wire an_interrupt
+  .an_adv_config_vector(an_adv_config_vector),      // input wire [15 : 0] an_adv_config_vector
+  .an_restart_config(an_restart_config),            // input wire an_restart_config
   .status_vector(status_vector),                    // output wire [15 : 0] status_vector
   .reset(reset),                                    // input wire reset
   .signal_detect(signal_detect)                    // input wire signal_detect

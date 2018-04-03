@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2016 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:ip:gtwizard_ultrascale:1.6
-// IP Revision: 2
+// IP Revision: 5
 
 `timescale 1ns/1ps
 
@@ -231,6 +231,8 @@ output wire [0 : 0] txresetdone_out;
 
   GigEthGthUltraScaleCore_gt_gtwizard_top #(
     .C_CHANNEL_ENABLE(192'B000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001),
+    .C_PCIE_ENABLE(0),
+    .C_PCIE_CORECLK_FREQ(250),
     .C_COMMON_SCALING_FACTOR(1),
     .C_CPLL_VCO_FREQUENCY(2500.0),
     .C_FORCE_COMMONS(0),
@@ -238,6 +240,7 @@ output wire [0 : 0] txresetdone_out;
     .C_GT_TYPE(0),
     .C_GT_REV(17),
     .C_INCLUDE_CPLL_CAL(2),
+    .C_SIM_CPLL_CAL_BYPASS(1'B0),
     .C_LOCATE_COMMON(0),
     .C_LOCATE_RESET_CONTROLLER(0),
     .C_LOCATE_USER_DATA_WIDTH_SIZING(0),
@@ -356,6 +359,12 @@ output wire [0 : 0] txresetdone_out;
     .gtwiz_gthe3_cpll_cal_txoutclk_period_in(18'B0),
     .gtwiz_gthe3_cpll_cal_cnt_tol_in(18'B0),
     .gtwiz_gthe3_cpll_cal_bufg_ce_in(1'B0),
+    .gtwiz_gthe4_cpll_cal_txoutclk_period_in(18'B0),
+    .gtwiz_gthe4_cpll_cal_cnt_tol_in(18'B0),
+    .gtwiz_gthe4_cpll_cal_bufg_ce_in(1'B0),
+    .gtwiz_gtye4_cpll_cal_txoutclk_period_in(18'B0),
+    .gtwiz_gtye4_cpll_cal_cnt_tol_in(18'B0),
+    .gtwiz_gtye4_cpll_cal_bufg_ce_in(1'B0),
     .gtwiz_userdata_tx_in(gtwiz_userdata_tx_in),
     .gtwiz_userdata_rx_out(gtwiz_userdata_rx_out),
     .bgbypassb_in(1'H1),

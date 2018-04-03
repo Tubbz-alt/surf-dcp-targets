@@ -21,7 +21,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>93c557ba</spirit:value>
+            <spirit:value>62fd8d94</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -41,7 +41,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Jul 01 18:19:41 UTC 2016</spirit:value>
+            <spirit:value>Tue Apr 03 16:16:45 UTC 2018</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -53,7 +53,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>93c557ba</spirit:value>
+            <spirit:value>62fd8d94</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -72,7 +72,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Jul 01 18:19:41 UTC 2016</spirit:value>
+            <spirit:value>Tue Apr 03 16:16:45 UTC 2018</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -84,7 +84,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>93c557ba</spirit:value>
+            <spirit:value>62fd8d94</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -104,7 +104,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Jul 01 18:19:44 UTC 2016</spirit:value>
+            <spirit:value>Tue Apr 03 16:16:48 UTC 2018</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -116,7 +116,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>530d55ad</spirit:value>
+            <spirit:value>c6df6a84</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -135,7 +135,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Jul 01 18:19:44 UTC 2016</spirit:value>
+            <spirit:value>Tue Apr 03 16:16:48 UTC 2018</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -147,7 +147,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>530d55ad</spirit:value>
+            <spirit:value>c6df6a84</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -1217,6 +1217,174 @@
             <xilinx:enablement>
               <xilinx:presence>illegal</xilinx:presence>
               <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PORT_ENABLEMENT.gtwiz_gthe3_cpll_cal_bufg_ce_in">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_gthe4_cpll_cal_txoutclk_period_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_TOTAL_NUM_CHANNELS&apos;)) * 18) - 1)">17</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>illegal</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PORT_ENABLEMENT.gtwiz_gthe4_cpll_cal_txoutclk_period_in">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_gthe4_cpll_cal_cnt_tol_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_TOTAL_NUM_CHANNELS&apos;)) * 18) - 1)">17</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>illegal</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PORT_ENABLEMENT.gtwiz_gthe4_cpll_cal_cnt_tol_in">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_gthe4_cpll_cal_bufg_ce_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_TOTAL_NUM_CHANNELS&apos;)) * 1) - 1)">0</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>illegal</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PORT_ENABLEMENT.gtwiz_gthe4_cpll_cal_bufg_ce_in">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_gtye4_cpll_cal_txoutclk_period_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_TOTAL_NUM_CHANNELS&apos;)) * 18) - 1)">17</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>illegal</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PORT_ENABLEMENT.gtwiz_gtye4_cpll_cal_txoutclk_period_in">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_gtye4_cpll_cal_cnt_tol_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_TOTAL_NUM_CHANNELS&apos;)) * 18) - 1)">17</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>illegal</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PORT_ENABLEMENT.gtwiz_gtye4_cpll_cal_cnt_tol_in">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_gtye4_cpll_cal_bufg_ce_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_TOTAL_NUM_CHANNELS&apos;)) * 1) - 1)">0</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>illegal</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PORT_ENABLEMENT.gtwiz_gtye4_cpll_cal_bufg_ce_in">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -14659,6 +14827,14 @@
         <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_CHANNEL_ENABLE" spirit:bitStringLength="192">&quot;000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001&quot;</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>C_PCIE_ENABLE</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_PCIE_ENABLE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>C_PCIE_CORECLK_FREQ</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_PCIE_CORECLK_FREQ">250</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_COMMON_SCALING_FACTOR</spirit:name>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COMMON_SCALING_FACTOR">1</spirit:value>
       </spirit:modelParameter>
@@ -14685,6 +14861,10 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_INCLUDE_CPLL_CAL</spirit:name>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_INCLUDE_CPLL_CAL">2</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>C_SIM_CPLL_CAL_BYPASS</spirit:name>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SIM_CPLL_CAL_BYPASS" spirit:bitStringLength="1">&quot;0&quot;</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_LOCATE_COMMON</spirit:name>
@@ -15407,64 +15587,84 @@
         <spirit:userFileType>xdc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_bit_synchronizer.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_bit_sync.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gthe3_cpll_cal.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gthe3_cpll_cal.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gthe3_cpll_cal_freq_counter.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gthe3_cal_freqcnt.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_buffbypass_rx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gthe4_cpll_cal.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_buffbypass_tx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gthe4_cal_freqcnt.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_reset.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtye4_cpll_cal.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_userclk_rx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtye4_cal_freqcnt.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_userclk_tx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_buffbypass_rx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_userdata_rx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_buffbypass_tx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_userdata_tx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_reset.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_reset_synchronizer.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_userclk_rx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_reset_inv_synchronizer.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_userclk_tx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_userdata_rx.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_userdata_tx.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_reset_sync.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_reset_inv_sync.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
         <spirit:name>synth/gtwizard_ultrascale_v1_6_gthe3_channel.v</spirit:name>
@@ -15500,76 +15700,100 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_bit_synchronizer.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_bit_sync.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gthe3_cpll_cal.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gthe3_cpll_cal.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gthe3_cpll_cal_freq_counter.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gthe3_cal_freqcnt.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_buffbypass_rx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gthe4_cpll_cal.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_buffbypass_tx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gthe4_cal_freqcnt.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_reset.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtye4_cpll_cal.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_userclk_rx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtye4_cal_freqcnt.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_userclk_tx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_buffbypass_rx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_userdata_rx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_buffbypass_tx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_gtwiz_userdata_tx.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_reset.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_reset_synchronizer.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_userclk_rx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>gtwizard_ultrascale_v1_6_2/hdl/verilog/gtwizard_ultrascale_v1_6_reset_inv_synchronizer.v</spirit:name>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_userclk_tx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>gtwizard_ultrascale_v1_6_2</spirit:logicalName>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_userdata_rx.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_gtwiz_userdata_tx.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_reset_sync.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/gtwizard_ultrascale_v1_6_reset_inv_sync.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+        <spirit:logicalName>gtwizard_ultrascale_v1_6_5</spirit:logicalName>
       </spirit:file>
       <spirit:file>
         <spirit:name>sim/gtwizard_ultrascale_v1_6_gthe3_channel.v</spirit:name>
@@ -15954,32 +16178,36 @@
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_OUTCLK_SOURCE" spirit:choiceRef="choice_list_6c5a0a73" spirit:order="45">RXOUTCLKPMA</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
+      <spirit:name>SIM_CPLL_CAL_BYPASS</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SIM_CPLL_CAL_BYPASS" spirit:order="46" spirit:minimum="0" spirit:maximum="1" spirit:rangeType="long">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
       <spirit:name>PCIE_ENABLE</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.PCIE_ENABLE" spirit:order="46">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.PCIE_ENABLE" spirit:order="47">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_TERMINATION</spirit:name>
       <spirit:displayName>Termination</spirit:displayName>
       <spirit:description>Select the receiver termination</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_TERMINATION" spirit:choiceRef="choice_pairs_1040277f" spirit:order="47">PROGRAMMABLE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_TERMINATION" spirit:choiceRef="choice_pairs_1040277f" spirit:order="48">PROGRAMMABLE</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_TERMINATION_PROG_VALUE</spirit:name>
       <spirit:displayName>Programmable termination voltage (mV)</spirit:displayName>
       <spirit:description>Select the termination voltage (in mV) when in programmable mode</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_TERMINATION_PROG_VALUE" spirit:choiceRef="choice_list_a0d11b39" spirit:order="48">800</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_TERMINATION_PROG_VALUE" spirit:choiceRef="choice_list_a0d11b39" spirit:order="49">800</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COUPLING</spirit:name>
       <spirit:displayName>Link coupling</spirit:displayName>
       <spirit:description>Select the link coupling</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COUPLING" spirit:choiceRef="choice_list_24871ac1" spirit:order="49">AC</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COUPLING" spirit:choiceRef="choice_list_24871ac1" spirit:order="50">AC</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_BUFFER_BYPASS_MODE</spirit:name>
       <spirit:displayName>Receiver elastic buffer bypass mode</spirit:displayName>
       <spirit:description>Control whether the receiver elastic buffer bypass operates in multi-lane mode or single-lane mode</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_BUFFER_BYPASS_MODE" spirit:choiceRef="choice_pairs_1436b008" spirit:order="50">MULTI</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_BUFFER_BYPASS_MODE" spirit:choiceRef="choice_pairs_1436b008" spirit:order="51">MULTI</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -15992,7 +16220,7 @@
       <spirit:name>RX_BUFFER_RESET_ON_CB_CHANGE</spirit:name>
       <spirit:displayName>Reset receiver elastic buffer on channel bonding change</spirit:displayName>
       <spirit:description>Control whether the receiver elastic buffer is reset on change to RXCHANBONDMASTER, RXCHANBONDSLAVE or RXCHANBONDLEVEL</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_BUFFER_RESET_ON_CB_CHANGE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="51">ENABLE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_BUFFER_RESET_ON_CB_CHANGE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="52">ENABLE</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16005,96 +16233,96 @@
       <spirit:name>RX_BUFFER_RESET_ON_COMMAALIGN</spirit:name>
       <spirit:displayName>Reset receiver elastic buffer on comma alignment</spirit:displayName>
       <spirit:description>Control whether the receiver elastic buffer is reset on comma alignment</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_BUFFER_RESET_ON_COMMAALIGN" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="52">DISABLE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_BUFFER_RESET_ON_COMMAALIGN" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="53">DISABLE</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_BUFFER_RESET_ON_RATE_CHANGE</spirit:name>
       <spirit:displayName>Reset receiver elastic buffer on rate change</spirit:displayName>
       <spirit:description>Control whether the receiver elastic buffer is reset on rate change</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_BUFFER_RESET_ON_RATE_CHANGE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="53">ENABLE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_BUFFER_RESET_ON_RATE_CHANGE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="54">ENABLE</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TX_BUFFER_RESET_ON_RATE_CHANGE</spirit:name>
       <spirit:displayName>Reset transmitter buffer on rate change</spirit:displayName>
       <spirit:description>Control whether the transmitter buffer is reset on rate change</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.TX_BUFFER_RESET_ON_RATE_CHANGE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="54">ENABLE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.TX_BUFFER_RESET_ON_RATE_CHANGE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="55">ENABLE</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RESET_SEQUENCE_INTERVAL</spirit:name>
       <spirit:displayName>Reset sequence time interval (ns)</spirit:displayName>
       <spirit:description>Select 0 to specify that all transceiver elements are reset in parallel when the reset controller helper block is used (default behavior). If sequential transceiver element resets are desired in order to mitigate the transient load requirements of the power supplies, then select a nonzero value to specify the time interval, in nanoseconds, between reset state changes of those transceiver elements. When the reset controller helper block is used, the Wizard performs the sequencing and enforces the time interval</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RESET_SEQUENCE_INTERVAL" spirit:choiceRef="choice_list_556e59ba" spirit:order="55">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RESET_SEQUENCE_INTERVAL" spirit:choiceRef="choice_list_556e59ba" spirit:order="56">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_PRESET</spirit:name>
       <spirit:displayName>Comma value preset</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_PRESET" spirit:choiceRef="choice_pairs_85f99b7f" spirit:order="56">K28.5</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_PRESET" spirit:choiceRef="choice_pairs_85f99b7f" spirit:order="57">K28.5</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_VALID_ONLY</spirit:name>
       <spirit:displayName>Valid comma values for 8B/10B decoding</spirit:displayName>
       <spirit:description>Select the range of comma characters decoded by the 8B/10B decoder</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_VALID_ONLY" spirit:choiceRef="choice_pairs_0c77e1fe" spirit:order="57">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_VALID_ONLY" spirit:choiceRef="choice_pairs_0c77e1fe" spirit:order="58">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_P_ENABLE</spirit:name>
       <spirit:displayName>Detect plus comma</spirit:displayName>
       <spirit:description>Indicate whether or not the specified bit pattern is detected as a plus comma</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_P_ENABLE" spirit:order="58">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_P_ENABLE" spirit:order="59">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_M_ENABLE</spirit:name>
       <spirit:displayName>Detect minus comma</spirit:displayName>
       <spirit:description>Indicate whether or not the specified bit pattern is detected as a minus comma</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_M_ENABLE" spirit:order="59">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_M_ENABLE" spirit:order="60">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_DOUBLE_ENABLE</spirit:name>
       <spirit:displayName>Detect combined plus/minus (double-length) comma</spirit:displayName>
       <spirit:description>Indicate whether or not the comma detection block searches for the specified plus comma and minus comma bit patterns together in sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_DOUBLE_ENABLE" spirit:order="60">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_DOUBLE_ENABLE" spirit:order="61">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_P_VAL</spirit:name>
       <spirit:displayName>Plus comma value</spirit:displayName>
       <spirit:description>Specify the bit pattern for plus comma detection, where the rightmost bit is the first bit received</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_P_VAL" spirit:order="61" spirit:bitStringLength="10">0101111100</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_P_VAL" spirit:order="62" spirit:bitStringLength="10">0101111100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_M_VAL</spirit:name>
       <spirit:displayName>Minus comma value</spirit:displayName>
       <spirit:description>Specify the bit pattern for minus comma detection, where the rightmost bit is the first bit received</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_M_VAL" spirit:order="62" spirit:bitStringLength="10">1010000011</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_M_VAL" spirit:order="63" spirit:bitStringLength="10">1010000011</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_MASK</spirit:name>
       <spirit:displayName>Mask</spirit:displayName>
       <spirit:description>Set any bit in the mask field to 0 to make the corresponding bit of the specified plus and minus comma values a &quot;don&apos;t care&quot;</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_MASK" spirit:order="63" spirit:bitStringLength="10">1111111111</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_MASK" spirit:order="64" spirit:bitStringLength="10">1111111111</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_ALIGN_WORD</spirit:name>
       <spirit:displayName>Alignment boundary</spirit:displayName>
       <spirit:description>Select which data byte boundaries are allowed for comma alignment</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_ALIGN_WORD" spirit:choiceRef="choice_pairs_9c19f015" spirit:order="64">2</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_ALIGN_WORD" spirit:choiceRef="choice_pairs_9c19f015" spirit:order="65">2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_COMMA_SHOW_REALIGN_ENABLE</spirit:name>
       <spirit:displayName>Show realign comma</spirit:displayName>
       <spirit:description>Indicate whether or not commas that cause realignment are brought out to the RXDATA port. Disable to reduce receiver data path latency</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_SHOW_REALIGN_ENABLE" spirit:order="65">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_COMMA_SHOW_REALIGN_ENABLE" spirit:order="66">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_SLIDE_MODE</spirit:name>
       <spirit:displayName>Manual alignment (RXSLIDE) mode</spirit:displayName>
       <spirit:description>Select whether to enable manual alignment, and in what mode if enabled</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_SLIDE_MODE" spirit:choiceRef="choice_pairs_ae574462" spirit:order="66">OFF</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_SLIDE_MODE" spirit:choiceRef="choice_pairs_ae574462" spirit:order="67">OFF</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CB_NUM_SEQ</spirit:name>
       <spirit:displayName>Enable and select number of sequences to use</spirit:displayName>
       <spirit:description>Select whether to enable channel bonding, and how many sequences to use if enabled</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_NUM_SEQ" spirit:choiceRef="choice_pairs_03018cc1" spirit:order="67">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_NUM_SEQ" spirit:choiceRef="choice_pairs_03018cc1" spirit:order="68">0</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16107,7 +16335,7 @@
       <spirit:name>RX_CB_LEN_SEQ</spirit:name>
       <spirit:displayName>Length of each sequence</spirit:displayName>
       <spirit:description>Select the number of characters in each channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_LEN_SEQ" spirit:choiceRef="choice_list_e6469819" spirit:order="68">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_LEN_SEQ" spirit:choiceRef="choice_list_e6469819" spirit:order="69">1</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16120,7 +16348,7 @@
       <spirit:name>RX_CB_MAX_SKEW</spirit:name>
       <spirit:displayName>Sequence maximum skew</spirit:displayName>
       <spirit:description>Select a channel bonding maximum skew value which is less than half the minimum distance between instances of the channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MAX_SKEW" spirit:order="69" spirit:minimum="1" spirit:maximum="14" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MAX_SKEW" spirit:order="70" spirit:minimum="1" spirit:maximum="14" spirit:rangeType="long">1</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16133,7 +16361,7 @@
       <spirit:name>RX_CB_MAX_LEVEL</spirit:name>
       <spirit:displayName>Maximum channel bonding level to be used</spirit:displayName>
       <spirit:description>Select the maximum channel bonding level that will be used in the system channel bonding topology</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MAX_LEVEL" spirit:order="70" spirit:minimum="1" spirit:maximum="7" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MAX_LEVEL" spirit:order="71" spirit:minimum="1" spirit:maximum="7" spirit:rangeType="long">1</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16144,7 +16372,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CB_MASK</spirit:name>
-      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CB_MASK" spirit:order="71">00000000</spirit:value>
+      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CB_MASK" spirit:order="72">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16155,7 +16383,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CB_VAL</spirit:name>
-      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CB_VAL" spirit:order="72">00000000000000000000000000000000000000000000000000000000000000000000000000000000</spirit:value>
+      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CB_VAL" spirit:order="73">00000000000000000000000000000000000000000000000000000000000000000000000000000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16166,7 +16394,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CB_K</spirit:name>
-      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CB_K" spirit:order="73">00000000</spirit:value>
+      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CB_K" spirit:order="74">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16177,7 +16405,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CB_DISP</spirit:name>
-      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CB_DISP" spirit:order="74">00000000</spirit:value>
+      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CB_DISP" spirit:order="75">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16190,7 +16418,7 @@
       <spirit:name>RX_CB_MASK_0_0</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_0_0" spirit:order="75">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_0_0" spirit:order="76">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16203,7 +16431,7 @@
       <spirit:name>RX_CB_VAL_0_0</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this channel bonding sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_0_0" spirit:order="76">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_0_0" spirit:order="77">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16216,7 +16444,7 @@
       <spirit:name>RX_CB_K_0_0</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_0_0" spirit:order="77">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_0_0" spirit:order="78">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16229,7 +16457,7 @@
       <spirit:name>RX_CB_DISP_0_0</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_0_0" spirit:order="78">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_0_0" spirit:order="79">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16242,7 +16470,7 @@
       <spirit:name>RX_CB_MASK_0_1</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_0_1" spirit:order="79">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_0_1" spirit:order="80">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16255,7 +16483,7 @@
       <spirit:name>RX_CB_VAL_0_1</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this channel bonding sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_0_1" spirit:order="80">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_0_1" spirit:order="81">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16268,7 +16496,7 @@
       <spirit:name>RX_CB_K_0_1</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_0_1" spirit:order="81">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_0_1" spirit:order="82">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16281,7 +16509,7 @@
       <spirit:name>RX_CB_DISP_0_1</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_0_1" spirit:order="82">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_0_1" spirit:order="83">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16294,7 +16522,7 @@
       <spirit:name>RX_CB_MASK_0_2</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_0_2" spirit:order="83">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_0_2" spirit:order="84">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16307,7 +16535,7 @@
       <spirit:name>RX_CB_VAL_0_2</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this channel bonding sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_0_2" spirit:order="84">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_0_2" spirit:order="85">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16320,7 +16548,7 @@
       <spirit:name>RX_CB_K_0_2</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_0_2" spirit:order="85">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_0_2" spirit:order="86">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16333,7 +16561,7 @@
       <spirit:name>RX_CB_DISP_0_2</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_0_2" spirit:order="86">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_0_2" spirit:order="87">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16346,7 +16574,7 @@
       <spirit:name>RX_CB_MASK_0_3</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_0_3" spirit:order="87">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_0_3" spirit:order="88">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16359,7 +16587,7 @@
       <spirit:name>RX_CB_VAL_0_3</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this channel bonding sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_0_3" spirit:order="88">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_0_3" spirit:order="89">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16372,7 +16600,7 @@
       <spirit:name>RX_CB_K_0_3</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_0_3" spirit:order="89">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_0_3" spirit:order="90">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16385,7 +16613,7 @@
       <spirit:name>RX_CB_DISP_0_3</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_0_3" spirit:order="90">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_0_3" spirit:order="91">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16398,7 +16626,7 @@
       <spirit:name>RX_CB_MASK_1_0</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_1_0" spirit:order="91">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_1_0" spirit:order="92">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16411,7 +16639,7 @@
       <spirit:name>RX_CB_VAL_1_0</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this channel bonding sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_1_0" spirit:order="92">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_1_0" spirit:order="93">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16424,7 +16652,7 @@
       <spirit:name>RX_CB_K_1_0</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_1_0" spirit:order="93">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_1_0" spirit:order="94">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16437,7 +16665,7 @@
       <spirit:name>RX_CB_DISP_1_0</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_1_0" spirit:order="94">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_1_0" spirit:order="95">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16450,7 +16678,7 @@
       <spirit:name>RX_CB_MASK_1_1</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_1_1" spirit:order="95">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_1_1" spirit:order="96">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16463,7 +16691,7 @@
       <spirit:name>RX_CB_VAL_1_1</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this channel bonding sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_1_1" spirit:order="96">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_1_1" spirit:order="97">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16476,7 +16704,7 @@
       <spirit:name>RX_CB_K_1_1</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_1_1" spirit:order="97">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_1_1" spirit:order="98">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16489,7 +16717,7 @@
       <spirit:name>RX_CB_DISP_1_1</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_1_1" spirit:order="98">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_1_1" spirit:order="99">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16502,7 +16730,7 @@
       <spirit:name>RX_CB_MASK_1_2</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_1_2" spirit:order="99">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_1_2" spirit:order="100">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16515,7 +16743,7 @@
       <spirit:name>RX_CB_VAL_1_2</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this channel bonding sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_1_2" spirit:order="100">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_1_2" spirit:order="101">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16528,7 +16756,7 @@
       <spirit:name>RX_CB_K_1_2</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_1_2" spirit:order="101">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_1_2" spirit:order="102">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16541,7 +16769,7 @@
       <spirit:name>RX_CB_DISP_1_2</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_1_2" spirit:order="102">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_1_2" spirit:order="103">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16554,7 +16782,7 @@
       <spirit:name>RX_CB_MASK_1_3</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a channel bonding sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_1_3" spirit:order="103">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_MASK_1_3" spirit:order="104">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16567,7 +16795,7 @@
       <spirit:name>RX_CB_VAL_1_3</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this channel bonding sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_1_3" spirit:order="104">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_VAL_1_3" spirit:order="105">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16580,7 +16808,7 @@
       <spirit:name>RX_CB_K_1_3</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_1_3" spirit:order="105">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_K_1_3" spirit:order="106">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16593,7 +16821,7 @@
       <spirit:name>RX_CB_DISP_1_3</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding channel bonding value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_1_3" spirit:order="106">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CB_DISP_1_3" spirit:order="107">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16606,31 +16834,31 @@
       <spirit:name>RX_CC_NUM_SEQ</spirit:name>
       <spirit:displayName>Enable and select number of sequences to use</spirit:displayName>
       <spirit:description>Select whether to enable clock correction, and how many sequences to use if enabled</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_NUM_SEQ" spirit:choiceRef="choice_pairs_b0974ef0" spirit:order="107">2</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_NUM_SEQ" spirit:choiceRef="choice_pairs_b0974ef0" spirit:order="108">2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_LEN_SEQ</spirit:name>
       <spirit:displayName>Length of each sequence</spirit:displayName>
       <spirit:description>Select the number of characters in each channel clock correction sequence</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_LEN_SEQ" spirit:choiceRef="choice_list_e6469819" spirit:order="108">2</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_LEN_SEQ" spirit:choiceRef="choice_list_e6469819" spirit:order="109">2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_PERIODICITY</spirit:name>
       <spirit:displayName>Periodicity of the sequence (in bytes)</spirit:displayName>
       <spirit:description>Specify the separation between clock correction sequences, in bytes</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_PERIODICITY" spirit:order="109" spirit:minimum="1" spirit:rangeType="long">5000</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_PERIODICITY" spirit:order="110" spirit:minimum="1" spirit:rangeType="long">5000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_KEEP_IDLE</spirit:name>
       <spirit:displayName>Keep idle</spirit:displayName>
       <spirit:description>Control whether at least one clock correction sequence is kept in the data stream for every continuous stream of clock correction sequences received</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_KEEP_IDLE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="110">DISABLE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_KEEP_IDLE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="111">DISABLE</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_PRECEDENCE</spirit:name>
       <spirit:displayName>Precedence</spirit:displayName>
       <spirit:description>Control whether clock correction takes precedence over channel bonding when both operations are triggered at the same time</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_PRECEDENCE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="111">ENABLE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_PRECEDENCE" spirit:choiceRef="choice_pairs_d4feb97d" spirit:order="112">ENABLE</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16643,13 +16871,13 @@
       <spirit:name>RX_CC_REPEAT_WAIT</spirit:name>
       <spirit:displayName>Minimum repetition</spirit:displayName>
       <spirit:description>Specify the number of RXUSRCLK cycles following a clock correction during which the elastic buffer is not permitted to execute another clock correction</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_REPEAT_WAIT" spirit:order="112" spirit:minimum="0" spirit:maximum="31" spirit:rangeType="long">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_REPEAT_WAIT" spirit:order="113" spirit:minimum="0" spirit:maximum="31" spirit:rangeType="long">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_MASK</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a clock correction sequence</spirit:description>
-      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CC_MASK" spirit:order="113">00000000</spirit:value>
+      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CC_MASK" spirit:order="114">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16660,11 +16888,11 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_VAL</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL" spirit:order="114">00000000000000000000001011010100101111000000000000000000000000010100000010111100</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL" spirit:order="115">00000000000000000000001011010100101111000000000000000000000000010100000010111100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_K</spirit:name>
-      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CC_K" spirit:order="115">00010001</spirit:value>
+      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CC_K" spirit:order="116">00010001</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16675,7 +16903,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_DISP</spirit:name>
-      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CC_DISP" spirit:order="116">00000000</spirit:value>
+      <spirit:value spirit:resolve="generated" spirit:id="PARAM_VALUE.RX_CC_DISP" spirit:order="117">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16688,55 +16916,55 @@
       <spirit:name>RX_CC_MASK_0_0</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a clock correction sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_0_0" spirit:order="117">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_0_0" spirit:order="118">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_VAL_0_0</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this clock correction sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_0_0" spirit:order="118">10111100</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_0_0" spirit:order="119">10111100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_K_0_0</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_0_0" spirit:order="119">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_0_0" spirit:order="120">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_DISP_0_0</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_0_0" spirit:order="120">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_0_0" spirit:order="121">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_MASK_0_1</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a clock correction sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_0_1" spirit:order="121">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_0_1" spirit:order="122">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_VAL_0_1</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this clock correction sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_0_1" spirit:order="122">01010000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_0_1" spirit:order="123">01010000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_K_0_1</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_0_1" spirit:order="123">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_0_1" spirit:order="124">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_DISP_0_1</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_0_1" spirit:order="124">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_0_1" spirit:order="125">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_MASK_0_2</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a clock correction sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_0_2" spirit:order="125">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_0_2" spirit:order="126">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16749,7 +16977,7 @@
       <spirit:name>RX_CC_VAL_0_2</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this clock correction sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_0_2" spirit:order="126">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_0_2" spirit:order="127">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16762,7 +16990,7 @@
       <spirit:name>RX_CC_K_0_2</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_0_2" spirit:order="127">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_0_2" spirit:order="128">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16775,7 +17003,7 @@
       <spirit:name>RX_CC_DISP_0_2</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_0_2" spirit:order="128">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_0_2" spirit:order="129">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16788,7 +17016,7 @@
       <spirit:name>RX_CC_MASK_0_3</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a clock correction sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_0_3" spirit:order="129">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_0_3" spirit:order="130">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16801,7 +17029,7 @@
       <spirit:name>RX_CC_VAL_0_3</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this clock correction sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_0_3" spirit:order="130">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_0_3" spirit:order="131">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16814,7 +17042,7 @@
       <spirit:name>RX_CC_K_0_3</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_0_3" spirit:order="131">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_0_3" spirit:order="132">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16827,7 +17055,7 @@
       <spirit:name>RX_CC_DISP_0_3</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_0_3" spirit:order="132">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_0_3" spirit:order="133">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16840,55 +17068,55 @@
       <spirit:name>RX_CC_MASK_1_0</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a clock correction sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_1_0" spirit:order="133">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_1_0" spirit:order="134">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_VAL_1_0</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this clock correction sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_1_0" spirit:order="134">10111100</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_1_0" spirit:order="135">10111100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_K_1_0</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_1_0" spirit:order="135">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_1_0" spirit:order="136">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_DISP_1_0</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_1_0" spirit:order="136">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_1_0" spirit:order="137">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_MASK_1_1</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a clock correction sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_1_1" spirit:order="137">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_1_1" spirit:order="138">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_VAL_1_1</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this clock correction sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_1_1" spirit:order="138">10110101</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_1_1" spirit:order="139">10110101</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_K_1_1</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_1_1" spirit:order="139">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_1_1" spirit:order="140">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_DISP_1_1</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_1_1" spirit:order="140">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_1_1" spirit:order="141">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_CC_MASK_1_2</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a clock correction sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_1_2" spirit:order="141">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_1_2" spirit:order="142">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16901,7 +17129,7 @@
       <spirit:name>RX_CC_VAL_1_2</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this clock correction sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_1_2" spirit:order="142">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_1_2" spirit:order="143">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16914,7 +17142,7 @@
       <spirit:name>RX_CC_K_1_2</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_1_2" spirit:order="143">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_1_2" spirit:order="144">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16927,7 +17155,7 @@
       <spirit:name>RX_CC_DISP_1_2</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_1_2" spirit:order="144">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_1_2" spirit:order="145">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16940,7 +17168,7 @@
       <spirit:name>RX_CC_MASK_1_3</spirit:name>
       <spirit:displayName>Don&apos;t care</spirit:displayName>
       <spirit:description>Mark this pattern &quot;don&apos;t care&quot; to always consider it as a match within a clock correction sequence</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_1_3" spirit:order="145">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_MASK_1_3" spirit:order="146">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16953,7 +17181,7 @@
       <spirit:name>RX_CC_VAL_1_3</spirit:name>
       <spirit:displayName>Value</spirit:displayName>
       <spirit:description>Specify the value for this clock correction sequence and pattern</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_1_3" spirit:order="146">00000000</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_VAL_1_3" spirit:order="147">00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16966,7 +17194,7 @@
       <spirit:name>RX_CC_K_1_3</spirit:name>
       <spirit:displayName>K character</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value is a K character</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_1_3" spirit:order="147">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_K_1_3" spirit:order="148">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16979,7 +17207,7 @@
       <spirit:name>RX_CC_DISP_1_3</spirit:name>
       <spirit:displayName>Inverted disparity</spirit:displayName>
       <spirit:description>Indicate whether or not the corresponding clock correction value uses inverted disparity to signify control a character via deliberate error</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_1_3" spirit:order="148">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.RX_CC_DISP_1_3" spirit:order="149">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -16992,37 +17220,37 @@
       <spirit:name>ENABLE_OPTIONAL_PORTS</spirit:name>
       <spirit:displayName>Enable optional ports</spirit:displayName>
       <spirit:description>Indicate whether a port should be included</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ENABLE_OPTIONAL_PORTS" spirit:order="149">drpaddr_in drpclk_in drpdi_in drpen_in drpwe_in txbufstatus_out txdiffctrl_in loopback_in rxpd_in txelecidle_in txpd_in cplllock_out drpdo_out drprdy_out eyescanreset_in eyescantrigger_in rxcdrhold_in rxdfelpmreset_in rxlpmen_in rxpolarity_in rxprbscntreset_in rxprbssel_in txpolarity_in txinhibit_in pcsrsvdin_in txpostcursor_in txprbsforceerr_in txprbssel_in txprecursor_in eyescandataerror_out rxprbserr_out rxresetdone_out txresetdone_out rxpcsreset_in rxpmareset_in gtrefclk1_in cpllrefclksel_in rxrate_in txpcsreset_in rxbufreset_in txpmareset_in dmonitorout_out </spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ENABLE_OPTIONAL_PORTS" spirit:order="150">drpaddr_in drpclk_in drpdi_in drpen_in drpwe_in txbufstatus_out txdiffctrl_in loopback_in rxpd_in txelecidle_in txpd_in cplllock_out drpdo_out drprdy_out eyescanreset_in eyescantrigger_in rxcdrhold_in rxdfelpmreset_in rxlpmen_in rxpolarity_in rxprbscntreset_in rxprbssel_in txpolarity_in txinhibit_in pcsrsvdin_in txpostcursor_in txprbsforceerr_in txprbssel_in txprecursor_in eyescandataerror_out rxprbserr_out rxresetdone_out txresetdone_out rxpcsreset_in rxpmareset_in gtrefclk1_in cpllrefclksel_in rxrate_in txpcsreset_in rxbufreset_in txpmareset_in dmonitorout_out </spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_REFCLK_SOURCE</spirit:name>
       <spirit:displayName>Receiver reference clock source</spirit:displayName>
       <spirit:description>Select a reference clock input to drive the PLL chosen for receiver operation</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_REFCLK_SOURCE" spirit:order="150"/>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_REFCLK_SOURCE" spirit:order="151">X0Y0 clk0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TX_REFCLK_SOURCE</spirit:name>
       <spirit:displayName>Transmitter reference clock source</spirit:displayName>
       <spirit:description>Select a reference clock input to drive the PLL chosen for transmitter operation</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.TX_REFCLK_SOURCE" spirit:order="151"/>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.TX_REFCLK_SOURCE" spirit:order="152">X0Y0 clk0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_RECCLK_OUTPUT</spirit:name>
       <spirit:displayName>Drive recovered clock out of device</spirit:displayName>
       <spirit:description>Indicate whether this transceiver channel should drive its recovered clock out of the device, and which reference clock buffer location to use</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_RECCLK_OUTPUT" spirit:order="152"/>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_RECCLK_OUTPUT" spirit:order="153"/>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>LOCATE_RESET_CONTROLLER</spirit:name>
       <spirit:displayName>Include reset controller in the</spirit:displayName>
       <spirit:description>Indicate whether the transceiver reset controller is instantiated within the core, or outside of the core in the example design. Inclusion may simplify transceiver usage, while exclusion may allow greater control.</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_RESET_CONTROLLER" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="153">CORE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_RESET_CONTROLLER" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="154">CORE</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>LOCATE_TX_BUFFER_BYPASS_CONTROLLER</spirit:name>
       <spirit:displayName>Include transmitter buffer bypass controller in the</spirit:displayName>
       <spirit:description>If the transmitter buffer is bypassed, indicate whether the transmitter buffer bypass controller is instantiated within the core, or outside of the core in the example design. Inclusion may simplify transceiver usage, while exclusion may allow greater control.</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_TX_BUFFER_BYPASS_CONTROLLER" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="154">CORE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_TX_BUFFER_BYPASS_CONTROLLER" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="155">CORE</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17035,7 +17263,7 @@
       <spirit:name>LOCATE_RX_BUFFER_BYPASS_CONTROLLER</spirit:name>
       <spirit:displayName>Include receiver elastic buffer bypass controller in the</spirit:displayName>
       <spirit:description>If the receiver elastic buffer is bypassed, indicate whether the receiver elastic buffer bypass controller is instantiated within the core, or outside of the core in the example design. Inclusion may simplify transceiver usage, while exclusion may allow greater control.</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_RX_BUFFER_BYPASS_CONTROLLER" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="155">CORE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_RX_BUFFER_BYPASS_CONTROLLER" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="156">CORE</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17048,31 +17276,31 @@
       <spirit:name>LOCATE_IN_SYSTEM_IBERT_CORE</spirit:name>
       <spirit:displayName>Include In-System IBERT core</spirit:displayName>
       <spirit:description>Indicate whether or not the In-System IBERT core should be instantiated in the example design.</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_IN_SYSTEM_IBERT_CORE" spirit:choiceRef="choice_pairs_4e550952" spirit:order="156">NONE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_IN_SYSTEM_IBERT_CORE" spirit:choiceRef="choice_pairs_4e550952" spirit:order="157">NONE</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>LOCATE_TX_USER_CLOCKING</spirit:name>
       <spirit:displayName>Include simple transmitter user clocking network in the</spirit:displayName>
       <spirit:description>Indicate whether the simple, inferred transmitter user clocking network is instantiated within the core, or outside of the core in the example design. Inclusion may simplify transceiver usage, while exclusion allows greater control of the network.</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_TX_USER_CLOCKING" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="157">EXAMPLE_DESIGN</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_TX_USER_CLOCKING" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="158">EXAMPLE_DESIGN</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>LOCATE_RX_USER_CLOCKING</spirit:name>
       <spirit:displayName>Include simple receiver user clocking network in the</spirit:displayName>
       <spirit:description>Indicate whether the simple, inferred receiver user clocking network is instantiated within the core, or outside of the core in the example design. Inclusion may simplify transceiver usage, while exclusion allows greater control of the network.</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_RX_USER_CLOCKING" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="158">EXAMPLE_DESIGN</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_RX_USER_CLOCKING" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="159">EXAMPLE_DESIGN</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>LOCATE_USER_DATA_WIDTH_SIZING</spirit:name>
       <spirit:displayName>Include user data width sizing in the</spirit:displayName>
       <spirit:description>Indicate whether the user data width sizing helper block is instantiated within the core, or outside of the core in the example design. Inclusion may simplify transceiver usage, while exclusion may allow greater control.</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_USER_DATA_WIDTH_SIZING" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="159">CORE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOCATE_USER_DATA_WIDTH_SIZING" spirit:choiceRef="choice_pairs_93c2d4ee" spirit:order="160">CORE</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>ORGANIZE_PORTS_BY</spirit:name>
       <spirit:displayName>In the example design, organize ports across multiple channels by</spirit:displayName>
       <spirit:description>If multiple transceivers are used, the example design can organize core ports either by name (iterating through each channel per port) or by channel (iterating through each port per channel)</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ORGANIZE_PORTS_BY" spirit:choiceRef="choice_pairs_f05b8192" spirit:order="160">NAME</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ORGANIZE_PORTS_BY" spirit:choiceRef="choice_pairs_f05b8192" spirit:order="161">NAME</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17085,16 +17313,16 @@
       <spirit:name>PRESET</spirit:name>
       <spirit:displayName>Transceiver configuration preset</spirit:displayName>
       <spirit:description>You may select a transceiver configuration preset to pre-populate Transceivers Wizard selections with those relevant to a particular protocol or electrical standard</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PRESET" spirit:choiceRef="choice_pairs_82d8cf73" spirit:order="161">GTH-Gigabit_Ethernet</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PRESET" spirit:choiceRef="choice_pairs_82d8cf73" spirit:order="162">GTH-Gigabit_Ethernet</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>INTERNAL_PRESET</spirit:name>
       <spirit:displayName>Transceiver configuration preset</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.INTERNAL_PRESET" spirit:order="162">Gigabit_Ethernet</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.INTERNAL_PRESET" spirit:order="163">Gigabit_Ethernet</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>INTERNAL_PORT_USAGE_UPDATED</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_USAGE_UPDATED" spirit:order="163">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_USAGE_UPDATED" spirit:order="164">0</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17105,7 +17333,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>INTERNAL_PORT_ENABLEMENT_UPDATED</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_ENABLEMENT_UPDATED" spirit:order="164">19</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_ENABLEMENT_UPDATED" spirit:order="165">21</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17116,7 +17344,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>INTERNAL_CHANNEL_SITES_UPDATED</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_CHANNEL_SITES_UPDATED" spirit:order="165">5</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_CHANNEL_SITES_UPDATED" spirit:order="166">5</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17127,7 +17355,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>INTERNAL_CHANNEL_COLUMN_LOC_MAX</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_CHANNEL_COLUMN_LOC_MAX" spirit:order="166">96</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_CHANNEL_COLUMN_LOC_MAX" spirit:order="167">96</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17138,7 +17366,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>INTERNAL_RX_COMMA_PRESET_UPDATE</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_RX_COMMA_PRESET_UPDATE" spirit:order="167">6</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_RX_COMMA_PRESET_UPDATE" spirit:order="168">6</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17149,7 +17377,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>INTERNAL_UPDATE_IP_SYMBOL_drpclk_in</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_UPDATE_IP_SYMBOL_drpclk_in" spirit:order="168">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_UPDATE_IP_SYMBOL_drpclk_in" spirit:order="169">true</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17162,7 +17390,7 @@
       <spirit:name>SECONDARY_QPLL_ENABLE</spirit:name>
       <spirit:displayName>Enable secondary QPLL</spirit:displayName>
       <spirit:description>Enable and configure the QPLL which is not used in this core configuration</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.SECONDARY_QPLL_ENABLE" spirit:order="169">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.SECONDARY_QPLL_ENABLE" spirit:order="170">false</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17175,7 +17403,7 @@
       <spirit:name>SECONDARY_QPLL_LINE_RATE</spirit:name>
       <spirit:displayName>Line rate of second core (Gb/s)</spirit:displayName>
       <spirit:description>Enter the line rate, in Gb/s, for the data direction(s) of the core instance which will be clocked by the secondary QPLL</spirit:description>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.SECONDARY_QPLL_LINE_RATE" spirit:order="170" spirit:minimum="0.5" spirit:maximum="16.375">10.3125</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.SECONDARY_QPLL_LINE_RATE" spirit:order="171" spirit:minimum="0.5" spirit:maximum="16.375">10.3125</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17188,7 +17416,7 @@
       <spirit:name>SECONDARY_QPLL_FRACN_NUMERATOR</spirit:name>
       <spirit:displayName>Fractional part of QPLL feedback divider</spirit:displayName>
       <spirit:description>For supported transceiver types and line rates, entering the requested reference clock frequency and clicking Calculate above sets this numerator which produces the desired 24-bit fractional part of the secondary QPLL feedback divider as displayed. Note that any subsequent changes to this value affect secondary reference clock options including current selection</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SECONDARY_QPLL_FRACN_NUMERATOR" spirit:order="171" spirit:minimum="0" spirit:maximum="16777215" spirit:rangeType="long">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SECONDARY_QPLL_FRACN_NUMERATOR" spirit:order="172" spirit:minimum="0" spirit:maximum="16777215" spirit:rangeType="long">0</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17201,7 +17429,7 @@
       <spirit:name>SECONDARY_QPLL_REFCLK_FREQUENCY</spirit:name>
       <spirit:displayName>Actual Reference clock frequency (MHz)</spirit:displayName>
       <spirit:description>Select a reference clock frequency from among those supported for the secondary QPLL at the selected line rate</spirit:description>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.SECONDARY_QPLL_REFCLK_FREQUENCY" spirit:choiceRef="choice_list_98c4d361" spirit:order="172">257.8125</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.SECONDARY_QPLL_REFCLK_FREQUENCY" spirit:choiceRef="choice_list_98c4d361" spirit:order="173">257.8125</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -17214,35 +17442,47 @@
       <spirit:name>TXPROGDIV_FREQ_ENABLE</spirit:name>
       <spirit:displayName>Enable selectable TXOUTCLK frequency</spirit:displayName>
       <spirit:description>Enable selection of the TXOUTCLK frequency when using the TX programmable divider, instead of allowing the Wizard to choose the TXOUTCLK frequency</spirit:description>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.TXPROGDIV_FREQ_ENABLE" spirit:order="173">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.TXPROGDIV_FREQ_ENABLE" spirit:order="174">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TXPROGDIV_FREQ_SOURCE</spirit:name>
       <spirit:displayName>Programmable divider clock source</spirit:displayName>
       <spirit:description>Select which PLL source is used to generate the selectable TXOUTCLK frequency</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.TXPROGDIV_FREQ_SOURCE" spirit:choiceRef="choice_list_822b7946" spirit:order="174">CPLL</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.TXPROGDIV_FREQ_SOURCE" spirit:choiceRef="choice_list_822b7946" spirit:order="175">CPLL</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TXPROGDIV_FREQ_VAL</spirit:name>
       <spirit:displayName>TXOUTCLK frequency (MHz)</spirit:displayName>
       <spirit:description>Select the TXOUTCLK frequency to be generated by the TX programmable divider</spirit:description>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.TXPROGDIV_FREQ_VAL" spirit:choiceRef="choice_list_04b1276e" spirit:order="175">125</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.TXPROGDIV_FREQ_VAL" spirit:choiceRef="choice_list_04b1276e" spirit:order="176">125</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SATA_TX_BURST_LEN</spirit:name>
       <spirit:displayName>TX COM sequence burst length</spirit:displayName>
       <spirit:description>Select the number of bursts that make up a SATA COM sequence</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SATA_TX_BURST_LEN" spirit:choiceRef="choice_list_be18be20" spirit:order="176">15</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SATA_TX_BURST_LEN" spirit:choiceRef="choice_list_be18be20" spirit:order="177">15</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>FREERUN_FREQUENCY</spirit:name>
       <spirit:displayName>Free-running and DRP clock frequency (MHz)</spirit:displayName>
       <spirit:description>Enter the frequency of the free-running clock used to bring up the core. For configurations which use the CPLL, this clock must also be used for the transceiver channel DRP interface</spirit:description>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.FREERUN_FREQUENCY" spirit:order="177" spirit:minimum="6.25" spirit:maximum="62.5">62.5</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.FREERUN_FREQUENCY" spirit:order="178" spirit:minimum="6.25" spirit:maximum="62.5">62.5</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>INCLUDE_CPLL_CAL</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.INCLUDE_CPLL_CAL" spirit:order="178" spirit:minimum="0" spirit:maximum="2" spirit:rangeType="long">2</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.INCLUDE_CPLL_CAL" spirit:order="179" spirit:minimum="0" spirit:maximum="2" spirit:rangeType="long">2</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>USB_ENABLE</spirit:name>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.USB_ENABLE" spirit:order="180">false</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>PCIE_64BIT</spirit:name>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.PCIE_64BIT" spirit:order="181">false</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>PCIE_GEN4_EIOS</spirit:name>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.PCIE_GEN4_EIOS" spirit:order="182">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>INTERNAL_PORT_ENABLED_GTWIZ_USERCLK_TX_RESET_IN</spirit:name>
@@ -17658,6 +17898,72 @@
         <xilinx:parameterInfo>
           <xilinx:enablement>
             <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.INTERNAL_PORT_ENABLED_GTWIZ_GTHE3_CPLL_CAL_BUFG_CE_IN">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>INTERNAL_PORT_ENABLED_GTWIZ_GTHE4_CPLL_CAL_TXOUTCLK_PERIOD_IN</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_ENABLED_GTWIZ_GTHE4_CPLL_CAL_TXOUTCLK_PERIOD_IN" spirit:minimum="-1" spirit:maximum="2" spirit:rangeType="long">-1</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.INTERNAL_PORT_ENABLED_GTWIZ_GTHE4_CPLL_CAL_TXOUTCLK_PERIOD_IN">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>INTERNAL_PORT_ENABLED_GTWIZ_GTHE4_CPLL_CAL_CNT_TOL_IN</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_ENABLED_GTWIZ_GTHE4_CPLL_CAL_CNT_TOL_IN" spirit:minimum="-1" spirit:maximum="2" spirit:rangeType="long">-1</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.INTERNAL_PORT_ENABLED_GTWIZ_GTHE4_CPLL_CAL_CNT_TOL_IN">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>INTERNAL_PORT_ENABLED_GTWIZ_GTHE4_CPLL_CAL_BUFG_CE_IN</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_ENABLED_GTWIZ_GTHE4_CPLL_CAL_BUFG_CE_IN" spirit:minimum="-1" spirit:maximum="2" spirit:rangeType="long">-1</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.INTERNAL_PORT_ENABLED_GTWIZ_GTHE4_CPLL_CAL_BUFG_CE_IN">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>INTERNAL_PORT_ENABLED_GTWIZ_GTYE4_CPLL_CAL_TXOUTCLK_PERIOD_IN</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_ENABLED_GTWIZ_GTYE4_CPLL_CAL_TXOUTCLK_PERIOD_IN" spirit:minimum="-1" spirit:maximum="2" spirit:rangeType="long">-1</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.INTERNAL_PORT_ENABLED_GTWIZ_GTYE4_CPLL_CAL_TXOUTCLK_PERIOD_IN">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>INTERNAL_PORT_ENABLED_GTWIZ_GTYE4_CPLL_CAL_CNT_TOL_IN</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_ENABLED_GTWIZ_GTYE4_CPLL_CAL_CNT_TOL_IN" spirit:minimum="-1" spirit:maximum="2" spirit:rangeType="long">-1</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.INTERNAL_PORT_ENABLED_GTWIZ_GTYE4_CPLL_CAL_CNT_TOL_IN">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>INTERNAL_PORT_ENABLED_GTWIZ_GTYE4_CPLL_CAL_BUFG_CE_IN</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="PARAM_VALUE.INTERNAL_PORT_ENABLED_GTWIZ_GTYE4_CPLL_CAL_BUFG_CE_IN" spirit:minimum="-1" spirit:maximum="2" spirit:rangeType="long">-1</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.INTERNAL_PORT_ENABLED_GTWIZ_GTYE4_CPLL_CAL_BUFG_CE_IN">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -23060,24 +23366,27 @@
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
       <xilinx:displayName>UltraScale FPGAs Transceivers Wizard</xilinx:displayName>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
       <xilinx:configElementInfos>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CHANNEL_ENABLE" xilinx:valueSource="propagated"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ENABLE_OPTIONAL_PORTS" xilinx:valueSource="propagated"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FREERUN_FREQUENCY" xilinx:valueSource="propagated"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PRESET" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.RX_REFCLK_FREQUENCY" xilinx:valueSource="propagated"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.RX_REFCLK_SOURCE" xilinx:valueSource="propagated"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.TXPROGDIV_FREQ_ENABLE" xilinx:valueSource="propagated"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.TXPROGDIV_FREQ_VAL" xilinx:valueSource="propagated"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.TX_OUTCLK_SOURCE" xilinx:valueSource="propagated"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.TX_REFCLK_FREQUENCY" xilinx:valueSource="propagated"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.TX_REFCLK_SOURCE" xilinx:valueSource="propagated"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2016.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9efdbf53"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="42c63fcc"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="9f2db63b"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2f0bda24"/>
+      <xilinx:xilinxVersion>2016.4</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d48fa8fd"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="0f0d257e"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="9ff278cd"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="36d08595"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

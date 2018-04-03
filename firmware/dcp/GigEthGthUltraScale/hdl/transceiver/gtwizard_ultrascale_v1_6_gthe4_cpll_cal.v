@@ -52,7 +52,10 @@
 
 `timescale 1ps/1ps
 
-module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
+module gtwizard_ultrascale_v1_6_5_gthe4_cpll_cal # (
+        parameter SIM_RESET_SPEEDUP = "TRUE",
+        parameter C_PCIE_ENABLE = 1'b0,
+        parameter integer C_PCIE_CORECLK_FREQ = 250,
         parameter REVISION = 2
 )(
         // control signals
@@ -69,7 +72,7 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
         input wire         USER_TXOUTCLK_BUFG_CE_IN,
         input wire         USER_TXOUTCLK_BUFG_CLR_IN,
         output reg         USER_CPLLLOCK_OUT,
-        input wire  [8:0]  USER_CHANNEL_DRPADDR_IN,
+        input wire  [9:0]  USER_CHANNEL_DRPADDR_IN,
         input wire  [15:0] USER_CHANNEL_DRPDI_IN,
         input wire         USER_CHANNEL_DRPEN_IN,
         input wire         USER_CHANNEL_DRPWE_IN,
@@ -79,20 +82,22 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
         output wire        CPLL_CAL_FAIL,
         output wire        CPLL_CAL_DONE,
         output wire [15:0] DEBUG_OUT,
+        output wire [17:0] CAL_FREQ_CNT,
+        input       [3:0]  REPEAT_RESET_LIMIT,
         // GT Interface
-        input wire         GTHE3_TXOUTCLK_IN,
-        input wire         GTHE3_CPLLLOCK_IN,
-        output wire        GTHE3_CPLLRESET_OUT,
-        output wire        GTHE3_CPLLPD_OUT,
-        output reg         GTHE3_TXPROGDIVRESET_OUT,
-        output reg  [2:0]  GTHE3_TXOUTCLKSEL_OUT,
-        input wire         GTHE3_TXPRGDIVRESETDONE_IN,
-        output reg [8:0]   GTHE3_CHANNEL_DRPADDR_OUT,
-        output reg [15:0]  GTHE3_CHANNEL_DRPDI_OUT,
-        output reg         GTHE3_CHANNEL_DRPEN_OUT,
-        output reg         GTHE3_CHANNEL_DRPWE_OUT,
-        input wire         GTHE3_CHANNEL_DRPRDY_IN,
-        input wire  [15:0] GTHE3_CHANNEL_DRPDO_IN
+        input wire         GTHE4_TXOUTCLK_IN,
+        input wire         GTHE4_CPLLLOCK_IN,
+        output wire        GTHE4_CPLLRESET_OUT,
+        output wire        GTHE4_CPLLPD_OUT,
+        output reg         GTHE4_TXPROGDIVRESET_OUT,
+        output reg  [2:0]  GTHE4_TXOUTCLKSEL_OUT,
+        input wire         GTHE4_TXPRGDIVRESETDONE_IN,
+        output reg [9:0]   GTHE4_CHANNEL_DRPADDR_OUT,
+        output reg [15:0]  GTHE4_CHANNEL_DRPDI_OUT,
+        output reg         GTHE4_CHANNEL_DRPEN_OUT,
+        output reg         GTHE4_CHANNEL_DRPWE_OUT,
+        input wire         GTHE4_CHANNEL_DRPRDY_IN,
+        input wire  [15:0] GTHE4_CHANNEL_DRPDO_IN
 );
 
 
@@ -105,40 +110,35 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
   localparam DRP_WRITE_ACK = 5;
   localparam DRP_DONE      = 6;
 
-  //CPLL CAL FSM
+
   localparam RESET                = 0;
   localparam READ_PROGCLK_SEL     = 1;
   localparam MODIFY_PROGCLK_SEL   = 2;
   localparam READ_PROGDIV         = 3;
   localparam MODIFY_PROGDIV       = 4;
   localparam MODIFY_TXOUTCLK_SEL  = 5;
-  localparam ASSERT_CPLLRESET1    = 6;
-  localparam READ_FBOOST          = 7;
-  localparam MODIFY_FBOOST        = 8;
-  localparam ASSERT_CPLLRESET     = 9;
-  localparam ASSERT_CPLLPD        = 10;
-  localparam DEASSERT_CPLLPD      = 11;
-  localparam DEASSERT_CPLLRESET   = 12;
-  localparam RESTORE_FBOOST       = 13;
-  localparam WAIT_GTCPLLLOCK      = 14;
-  localparam ASSERT_PROGDIVRESET  = 15;
-  localparam WAIT_PRGDIVRESETDONE = 16;
-  localparam CHECK_FREQ           = 17;
-  localparam RESTORE_PROGDIV      = 18;
-  localparam RESTORE_PROGCLK_SEL  = 19;
-  localparam ASSERT_CPLLRESET2    = 20;
-  localparam WAIT_GTCPLLLOCK2     = 21;
-  localparam ASSERT_PROGDIVRESET2 = 22;
-  localparam WAIT_PRGDIVRESETDONE2= 23;
-  localparam CAL_FAIL             = 24;
-  localparam CAL_DONE             = 25;
-
+  localparam ASSERT_CPLLPD        = 6;
+  localparam DEASSERT_CPLLPD      = 7;
+  localparam ASSERT_CPLLRESET     = 8;
+  localparam DEASSERT_CPLLRESET   = 9;
+  localparam WAIT_GTCPLLLOCK      = 10;
+  localparam ASSERT_PROGDIVRESET  = 11;
+  localparam WAIT_PRGDIVRESETDONE = 12;
+  localparam CHECK_FREQ           = 13;
+  localparam RESTORE_PROGDIV      = 14;
+  localparam RESTORE_PROGCLK_SEL  = 15;
+  localparam WAIT_GTCPLLLOCK2     = 16;
+  localparam ASSERT_PROGDIVRESET2 = 17;
+  localparam WAIT_PRGDIVRESETDONE2= 18;
+  localparam CAL_FAIL             = 19;
+  localparam CAL_DONE             = 20;
+  
+  
   reg [25:0] cpll_cal_state = 26'd0;
   wire [4:0] cpll_cal_state_bin;
   reg [6:0] drp_state = 7'd1;
   wire drp_done;
-  reg [8:0] daddr = 9'd0;
-  //reg [8:0] daddr = 9'd0;
+  reg [9:0] daddr = 10'd0;
   reg [15:0] di = 16'd0;
   wire drdy;
   wire [15:0] dout;
@@ -148,8 +148,7 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
   reg rd = 1'b0;
   reg [15:0] di_msk;
   reg [15:0] mask;
-  //reg [15:0] mask;
-  reg [15:0] wait_ctr;
+  reg [19:0] wait_ctr;
   reg [3:0] repeat_ctr;
   reg [1:0] progclk_sel_store = 2'b00;
   reg [15:0] progdiv_cfg_store = 16'd0;
@@ -161,30 +160,50 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
   reg [2:0] txoutclksel_int = 3'b000;
   reg cal_fail_store = 1'b0;
 
-  localparam [4:0]  WAIT_WIDTH_PROGDIVRESET = 5'd31;
-  localparam [4:0]  WAIT_ASSERT_CPLLRESET   = 5'd31;
-  localparam [4:0]  WAIT_ASSERT_CPLLPD      = 5'd31;
-  localparam [4:0]  WAIT_DEASSERT_CPLLRESET = 5'd31;
-  localparam [15:0] WAIT_CPLLLOCK = 16'h4000;
-  localparam [3:0]  REPEAT_RESET_LIMIT = 4'd15;
+  localparam [19:0]  SIM_WAIT_ASSERT_CPLLRESET = 20'h2710;
+  localparam [19:0]  SIM_WAIT_CPLLLOCK  = 20'h2710;
+  localparam [15:0]  SIM_WAIT_DEASSERT_CPLLRESET = 16'd100;
+  localparam [19:0]  SYNTH_WAIT_ASSERT_CPLLRESET = 20'h186A0;
+  localparam [19:0]  SYNTH_WAIT_CPLLLOCK  = 20'h186A0;
+  localparam [15:0]  SYNTH_WAIT_DEASSERT_CPLLRESET = 16'd10000;
+
+  localparam [40:1] SIM_RESET_SPEEDUP_REG = SIM_RESET_SPEEDUP;
+  localparam [4:0]  WAIT_WIDTH_PROGDIVRESET = 5'd10;
+  localparam [19:0]  WAIT_ASSERT_CPLLRESET =
+    //pragma translate_off
+     (SIM_RESET_SPEEDUP_REG == "TRUE") ? SIM_WAIT_ASSERT_CPLLRESET  :
+    //pragma translate_on
+                                    SYNTH_WAIT_ASSERT_CPLLRESET;
+  localparam [4:0]  WAIT_ASSERT_CPLLPD      = 5'd10;
+  localparam [15:0]  WAIT_DEASSERT_CPLLRESET =  
+    //pragma translate_off
+     (SIM_RESET_SPEEDUP_REG == "TRUE" ) ? SIM_WAIT_DEASSERT_CPLLRESET :
+    //pragma translate_on
+                                      SYNTH_WAIT_DEASSERT_CPLLRESET;
+  localparam [19:0]  WAIT_CPLLLOCK = 
+    //pragma translate_off
+     (SIM_RESET_SPEEDUP_REG == "TRUE" ) ? SIM_WAIT_CPLLLOCK :
+    //pragma translate_on
+                                    SYNTH_WAIT_CPLLLOCK;
+
 
   localparam [1:0]  MOD_PROGCLK_SEL = 2'b10;
-  localparam [15:0] MOD_PROGDIV_CFG = 16'hA1A2; //divider 20
+  localparam [15:0] MOD_PROGDIV_CFG = 16'hE062; //divider 20
   localparam [2:0]  MOD_TXOUTCLK_SEL = 3'b101;
   localparam        MOD_FBOOST = 1'b1;
-  localparam [8:0]  ADDR_TX_PROGCLK_SEL = 9'h00C;
-  localparam [8:0]  ADDR_TX_PROGDIV_CFG = 9'h03E;
-  localparam [8:0]  ADDR_FBOOST = 9'h0CB;
+  localparam [9:0]  ADDR_TX_PROGCLK_SEL = 10'h00C;
+  localparam [9:0]  ADDR_TX_PROGDIV_CFG = 10'h03e; //GTY /GTH addresses are different
 
   // Drive TXOUTCLK with BUFG_GT-buffered source clock, divider = 1
   wire txoutclkmon;
+  //assign txoutclkmon = GTHE4_TXOUTCLK_IN;
   BUFG_GT bufg_gt_txoutclkmon_inst (
     .CE      (USER_TXOUTCLK_BUFG_CE_IN),
     .CEMASK  (1'b1),
     .CLR     (USER_TXOUTCLK_BUFG_CLR_IN),
     .CLRMASK (1'b1),
     .DIV     (3'b000),
-    .I       (GTHE3_TXOUTCLK_IN),
+    .I       (GTHE4_TXOUTCLK_IN),
     .O       (txoutclkmon)
   );
 
@@ -195,11 +214,11 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
     .rst_out  (reset_in_sync)
   );
 
-  wire gthe3_cplllock_sync;
+  wire gthe4_cplllock_sync;
   gtwizard_ultrascale_v1_6_5_bit_synchronizer bit_synchronizer_cplllock_inst (
     .clk_in (CLK_IN),
-    .i_in   (GTHE3_CPLLLOCK_IN),
-    .o_out  (gthe3_cplllock_sync)
+    .i_in   (GTHE4_CPLLLOCK_IN),
+    .o_out  (gthe4_cplllock_sync)
   );
 
   wire user_txprogdivreset_sync;
@@ -209,11 +228,11 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
     .o_out  (user_txprogdivreset_sync)
   );
 
-  wire gthe3_txprgdivresetdone_sync;
+  wire gthe4_txprgdivresetdone_sync;
   gtwizard_ultrascale_v1_6_5_bit_synchronizer bit_synchronizer_txprgdivresetdone_inst (
     .clk_in (CLK_IN),
-    .i_in   (GTHE3_TXPRGDIVRESETDONE_IN),
-    .o_out  (gthe3_txprgdivresetdone_sync)
+    .i_in   (GTHE4_TXPRGDIVRESETDONE_IN),
+    .o_out  (gthe4_txprgdivresetdone_sync)
   );
 
   wire [2:0] user_txoutclksel_sync;
@@ -233,42 +252,42 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
     .o_out  (user_txoutclksel_sync[2])
   );
 
-  assign GTHE3_CPLLRESET_OUT = cpllreset_int;
-  assign GTHE3_CPLLPD_OUT = cpllpd_int;
+  assign GTHE4_CPLLRESET_OUT = cpllreset_int;
+  assign GTHE4_CPLLPD_OUT = cpllpd_int;
 
   always @(posedge CLK_IN) begin
     if (mask_user_in | cpll_cal_state[CAL_FAIL] | cpll_cal_state[RESET] | reset_in_sync)
       USER_CPLLLOCK_OUT <= 1'b0;
     else
-      USER_CPLLLOCK_OUT <= gthe3_cplllock_sync;
+      USER_CPLLLOCK_OUT <= gthe4_cplllock_sync;
   end
 
   always @(posedge CLK_IN) begin
     if (mask_user_in)
-      GTHE3_TXPROGDIVRESET_OUT <= txprogdivreset_int;
+      GTHE4_TXPROGDIVRESET_OUT <= txprogdivreset_int;
     else
-      GTHE3_TXPROGDIVRESET_OUT <= user_txprogdivreset_sync;
+      GTHE4_TXPROGDIVRESET_OUT <= user_txprogdivreset_sync;
   end
 
   always @(posedge CLK_IN) begin
     if (mask_user_in)
-      GTHE3_TXOUTCLKSEL_OUT <= txoutclksel_int;
+      GTHE4_TXOUTCLKSEL_OUT <= txoutclksel_int;
     else
-      GTHE3_TXOUTCLKSEL_OUT <= user_txoutclksel_sync;
+      GTHE4_TXOUTCLKSEL_OUT <= user_txoutclksel_sync;
   end
 
   always @(posedge CLK_IN) begin
     if (mask_user_in)
       USER_TXPRGDIVRESETDONE_OUT <= 1'b0;
     else
-      USER_TXPRGDIVRESETDONE_OUT <= gthe3_txprgdivresetdone_sync;
+      USER_TXPRGDIVRESETDONE_OUT <= gthe4_txprgdivresetdone_sync;
   end
 
   // frequency counter for txoutclk
   wire [17:0] txoutclk_freq_cnt;
   reg freq_counter_rst = 1'b1;
   wire freq_cnt_done;
-  gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal_freq_counter U_TXOUTCLK_FREQ_COUNTER
+  gtwizard_ultrascale_v1_6_5_gthe4_cpll_cal_freq_counter U_TXOUTCLK_FREQ_COUNTER
     (
       .freq_cnt_o(txoutclk_freq_cnt),
       .done_o(freq_cnt_done),
@@ -279,9 +298,10 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
     );
 
   //Debug signals
-  assign DEBUG_OUT = {cpllreset_int,cpllpd_int,gthe3_cplllock_sync,fboost_store,freq_cnt_done,freq_counter_rst,mask_user_in,cpll_cal_state_bin,repeat_ctr};
+  assign DEBUG_OUT = {cpllreset_int,cpllpd_int,gthe4_cplllock_sync,1'b0,freq_cnt_done,freq_counter_rst,mask_user_in,cpll_cal_state_bin,repeat_ctr};
   assign CPLL_CAL_FAIL = cpll_cal_state[CAL_FAIL];
   assign CPLL_CAL_DONE = cpll_cal_state[CAL_DONE];
+  assign CAL_FREQ_CNT = txoutclk_freq_cnt;
 
   //CPLL CAL FSM
   always @(posedge CLK_IN) begin
@@ -312,7 +332,9 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
                rd <= 1'b1;
                if (drp_done) begin
                  rd <= 1'b0;
-                 progclk_sel_store <= dout[11:10];
+                 
+                 progclk_sel_store <= (C_PCIE_ENABLE) ? 2'b10 : dout[11:10];
+
                  cpll_cal_state[MODIFY_PROGCLK_SEL] <= 1'b1;
                end
                else begin
@@ -338,7 +360,9 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
                rd <= 1'b1;
                if (drp_done) begin
                  rd <= 1'b0;
-                 progdiv_cfg_store <= dout;
+                 
+                 progdiv_cfg_store <= (C_PCIE_ENABLE) ? ((C_PCIE_CORECLK_FREQ == 250) ? 16'hE060 : 16'hE078) : dout;
+
                  cpll_cal_state[MODIFY_PROGDIV] <= 1'b1;
                end
                else begin
@@ -362,52 +386,36 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
 
              cpll_cal_state[MODIFY_TXOUTCLK_SEL]:
              begin
-               cpll_cal_state[ASSERT_CPLLRESET1] <= 1'b1;
+               cpll_cal_state[ASSERT_CPLLPD] <= 1'b1;
              end
-
-             cpll_cal_state[ASSERT_CPLLRESET1]:
+             
+             cpll_cal_state[ASSERT_CPLLPD]:
              begin
-               if (wait_ctr < WAIT_ASSERT_CPLLRESET) begin
+               if (wait_ctr < WAIT_ASSERT_CPLLPD) begin
                  wait_ctr <= wait_ctr + 1'b1;
-                 cpll_cal_state[ASSERT_CPLLRESET1] <= 1'b1;
-                 cpllreset_int <= 1'b1;
+                 cpll_cal_state[ASSERT_CPLLPD] <= 1'b1;                 
                end
                else begin
-                 cpllreset_int <= 1'b0;
-                 freq_counter_rst <= 1'b1;
-                 cpll_cal_state[WAIT_GTCPLLLOCK] <= 1'b1;
+                 cpllpd_int <= 1'b1;
+                 cpll_cal_state[DEASSERT_CPLLPD] <= 1'b1;
                  wait_ctr <= 16'd0;
                end
-               repeat_ctr <= 4'd0;
              end
-
-             cpll_cal_state[READ_FBOOST]:
+             
+             cpll_cal_state[DEASSERT_CPLLPD]:
              begin
-               rd <= 1'b1;
-               if (drp_done) begin
-                 rd <= 1'b0;
-                 fboost_store <= dout[2];
-                 cpll_cal_state[MODIFY_FBOOST] <= 1'b1;
+               if (wait_ctr < WAIT_DEASSERT_CPLLPD_IN) begin
+                 wait_ctr <= wait_ctr + 1'b1;
+                 cpll_cal_state[DEASSERT_CPLLPD] <= 1'b1;
                end
                else begin
-                 cpll_cal_state[READ_FBOOST] <= 1'b1;
-               end
-             end
-
-             cpll_cal_state[MODIFY_FBOOST]:
-             begin
-               if (!drp_done) begin
-                 wr <= 1'b1;
-                 cpll_cal_state[MODIFY_FBOOST] <= 1'b1;
-               end
-               else begin
-                 wr <= 1'b0;
+                 cpllpd_int <= 1'b0;
                  cpll_cal_state[ASSERT_CPLLRESET] <= 1'b1;
                  wait_ctr <= 16'd0;
+                 freq_counter_rst <= 1'b1;
                end
-               di_msk<= {13'd0,MOD_FBOOST,2'b00};
-             end
-
+             end 
+             
              cpll_cal_state[ASSERT_CPLLRESET]:
              begin
                if (wait_ctr < WAIT_ASSERT_CPLLRESET) begin
@@ -417,32 +425,6 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
                else begin
                  cpllreset_int <= 1'b1;
                  freq_counter_rst <= 1'b1;
-                 cpll_cal_state[ASSERT_CPLLPD] <= 1'b1;
-                 wait_ctr <= 16'd0;
-               end
-             end
-
-             cpll_cal_state[ASSERT_CPLLPD]:
-             begin
-               if (wait_ctr < WAIT_ASSERT_CPLLPD) begin
-                 wait_ctr <= wait_ctr + 1'b1;
-                 cpll_cal_state[ASSERT_CPLLPD] <= 1'b1;
-               end
-               else begin
-                 cpllpd_int <= 1'b1;
-                 cpll_cal_state[DEASSERT_CPLLPD] <= 1'b1;
-                 wait_ctr <= 16'd0;
-               end
-             end
-
-             cpll_cal_state[DEASSERT_CPLLPD]:
-             begin
-               if (wait_ctr < WAIT_DEASSERT_CPLLPD_IN) begin
-                 wait_ctr <= wait_ctr + 1'b1;
-                 cpll_cal_state[DEASSERT_CPLLPD] <= 1'b1;
-               end
-               else begin
-                 cpllpd_int <= 1'b0;
                  cpll_cal_state[DEASSERT_CPLLRESET] <= 1'b1;
                  wait_ctr <= 16'd0;
                end
@@ -456,23 +438,11 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
                end
                else begin
                  cpllreset_int <= 1'b0;
-                 cpll_cal_state[RESTORE_FBOOST] <= 1'b1;
+                 cpll_cal_state[WAIT_GTCPLLLOCK] <= 1'b1;
                  wait_ctr <= 16'd0;
                end
              end
-
-             cpll_cal_state[RESTORE_FBOOST]:
-             begin
-               if (!drp_done) begin
-                 wr <= 1'b1;
-                 cpll_cal_state[RESTORE_FBOOST] <= 1'b1;
-               end
-               else begin
-                 wr <= 1'b0;
-                 cpll_cal_state[WAIT_GTCPLLLOCK] <= 1'b1;
-               end
-               di_msk<= {13'd0,fboost_store,2'b00};
-             end
+             
 
              cpll_cal_state[WAIT_GTCPLLLOCK]:
              begin
@@ -502,7 +472,7 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
 
              cpll_cal_state[WAIT_PRGDIVRESETDONE]:
              begin
-               if (gthe3_txprgdivresetdone_sync) begin
+               if (gthe4_txprgdivresetdone_sync) begin
                  cpll_cal_state[CHECK_FREQ] <= 1'b1;
                  freq_counter_rst <= 1'b0;
                end
@@ -515,12 +485,13 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
              begin
                if(freq_cnt_done) begin
                  if ((txoutclk_freq_cnt >= (TXOUTCLK_PERIOD_IN - CNT_TOL_IN)) & (txoutclk_freq_cnt <= (TXOUTCLK_PERIOD_IN + CNT_TOL_IN))) begin
+                 
                    cpll_cal_state[RESTORE_PROGDIV] <= 1'b1;
                    cal_fail_store <= 1'b0;
                  end
                  else begin
                    if (repeat_ctr < REPEAT_RESET_LIMIT) begin
-                     cpll_cal_state[READ_FBOOST] <= 1'b1;
+                     cpll_cal_state[ASSERT_CPLLPD] <= 1'b1;
                      repeat_ctr <= repeat_ctr + 1'b1;
                    end
                    else begin
@@ -533,7 +504,7 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
                  cpll_cal_state[CHECK_FREQ] <= 1'b1;
              end
 
-             cpll_cal_state[RESTORE_PROGDIV]:
+            cpll_cal_state[RESTORE_PROGDIV]:
              begin
                if (!drp_done) begin
                  wr <= 1'b1;
@@ -554,31 +525,21 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
                end
                else begin
                  wr <= 1'b0;
-                 cpll_cal_state[ASSERT_CPLLRESET2] <= 1'b1;
+                 cpll_cal_state[WAIT_GTCPLLLOCK2] <= 1'b1;
                end
                di_msk<= {4'd0,progclk_sel_store,10'd0};
              end
-
-             cpll_cal_state[ASSERT_CPLLRESET2]:
-             begin
-               if (wait_ctr < WAIT_ASSERT_CPLLRESET) begin
-                 wait_ctr <= wait_ctr + 1'b1;
-                 cpll_cal_state[ASSERT_CPLLRESET2] <= 1'b1;
-                 cpllreset_int <= 1'b1;
-               end
-               else begin
-                 cpllreset_int <= 1'b0;
-                 cpll_cal_state[WAIT_GTCPLLLOCK2] <= 1'b1;
-                 wait_ctr <= 16'd0;
-               end
-             end
-
+            
              cpll_cal_state[WAIT_GTCPLLLOCK2]:
              begin
-               if(gthe3_cplllock_sync)
-                 cpll_cal_state[ASSERT_PROGDIVRESET2] <= 1'b1;
+               cpll_cal_state[ASSERT_PROGDIVRESET2] <= 1'b1;
+               if(!gthe4_cplllock_sync)
+                  cal_fail_store <= 1'b1;
                else
-                 cpll_cal_state[WAIT_GTCPLLLOCK2] <= 1'b1;
+                  cal_fail_store <= cal_fail_store;
+                 //cpll_cal_state[ASSERT_PROGDIVRESET2] <= 1'b1;
+               //else
+                 //cpll_cal_state[WAIT_GTCPLLLOCK2] <= 1'b1;
              end
 
              cpll_cal_state[ASSERT_PROGDIVRESET2]:
@@ -597,7 +558,7 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
 
              cpll_cal_state[WAIT_PRGDIVRESETDONE2]:
              begin
-               if (gthe3_txprgdivresetdone_sync) begin
+               if (gthe4_txprgdivresetdone_sync) begin
                  if (cal_fail_store)
                    cpll_cal_state[CAL_FAIL] <= 1'b1;
                  else
@@ -632,7 +593,7 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
 
    always @(posedge CLK_IN) begin
      if      (cpll_cal_state[RESET]) begin
-       daddr <= 9'h000;
+       daddr <= 10'h000;
        mask  <= 16'b1111_1111_1111_1111;
      end
      else if (cpll_cal_state[READ_PROGCLK_SEL] | cpll_cal_state[MODIFY_PROGCLK_SEL] | cpll_cal_state[RESTORE_PROGCLK_SEL]) begin
@@ -643,34 +604,31 @@ module gtwizard_ultrascale_v1_6_5_gthe3_cpll_cal # (
        daddr <= ADDR_TX_PROGDIV_CFG;
        mask  <= 16'b0000_0000_0000_0000;
      end
-     else if (cpll_cal_state[READ_FBOOST] | cpll_cal_state[MODIFY_FBOOST] | cpll_cal_state[RESTORE_FBOOST]) begin
-       daddr <= ADDR_FBOOST;
-       mask  <= 16'b1111_1111_1111_1011;
-     end
+
    end
 
 
   // DRP FSM
   always @(posedge CLK_IN) begin
     if (mask_user_in) begin
-      GTHE3_CHANNEL_DRPADDR_OUT <= daddr;
-      GTHE3_CHANNEL_DRPDI_OUT   <= di;
-      GTHE3_CHANNEL_DRPEN_OUT   <= den;
-      GTHE3_CHANNEL_DRPWE_OUT   <= dwe;
+      GTHE4_CHANNEL_DRPADDR_OUT <= daddr;
+      GTHE4_CHANNEL_DRPDI_OUT   <= di;
+      GTHE4_CHANNEL_DRPEN_OUT   <= den;
+      GTHE4_CHANNEL_DRPWE_OUT   <= dwe;
       USER_CHANNEL_DRPRDY_OUT   <= 1'b0;
       USER_CHANNEL_DRPDO_OUT    <= 16'd0;
     end
     else begin
-      GTHE3_CHANNEL_DRPADDR_OUT <= USER_CHANNEL_DRPADDR_IN;
-      GTHE3_CHANNEL_DRPDI_OUT   <= USER_CHANNEL_DRPDI_IN;
-      GTHE3_CHANNEL_DRPEN_OUT   <= USER_CHANNEL_DRPEN_IN;
-      GTHE3_CHANNEL_DRPWE_OUT   <= USER_CHANNEL_DRPWE_IN;
-      USER_CHANNEL_DRPRDY_OUT   <= GTHE3_CHANNEL_DRPRDY_IN;
-      USER_CHANNEL_DRPDO_OUT    <= GTHE3_CHANNEL_DRPDO_IN;
+      GTHE4_CHANNEL_DRPADDR_OUT <= USER_CHANNEL_DRPADDR_IN;
+      GTHE4_CHANNEL_DRPDI_OUT   <= USER_CHANNEL_DRPDI_IN;
+      GTHE4_CHANNEL_DRPEN_OUT   <= USER_CHANNEL_DRPEN_IN;
+      GTHE4_CHANNEL_DRPWE_OUT   <= USER_CHANNEL_DRPWE_IN;
+      USER_CHANNEL_DRPRDY_OUT   <= GTHE4_CHANNEL_DRPRDY_IN;
+      USER_CHANNEL_DRPDO_OUT    <= GTHE4_CHANNEL_DRPDO_IN;
     end
   end
-  assign drdy = GTHE3_CHANNEL_DRPRDY_IN;
-  assign dout = GTHE3_CHANNEL_DRPDO_IN;
+  assign drdy = GTHE4_CHANNEL_DRPRDY_IN;
+  assign dout = GTHE4_CHANNEL_DRPDO_IN;
 
   always @(posedge CLK_IN or posedge reset_in_sync) begin
   if (reset_in_sync) begin

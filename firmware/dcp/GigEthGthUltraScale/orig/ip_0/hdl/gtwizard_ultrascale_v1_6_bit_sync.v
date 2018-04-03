@@ -52,47 +52,37 @@
 
 `timescale 1ps/1ps
 
-module gtwizard_ultrascale_v1_6_2_reset_synchronizer # (
+module gtwizard_ultrascale_v1_6_5_bit_synchronizer # (
 
-  parameter FREQUENCY = 512
+  parameter INITIALIZE = 5'b00000,
+  parameter FREQUENCY  = 512
 
 )(
 
   input  wire clk_in,
-  input  wire rst_in,
-  output wire rst_out
+  input  wire i_in,
+  output wire o_out
 
 );
 
   // Use 5 flip-flops as a single synchronizer, and tag each declaration with the appropriate synthesis attribute to
-  // enable clustering. Each flip-flop in the synchronizer is asynchronously reset so that the downstream logic is also
-  // asynchronously reset but encounters no reset assertion latency. The removal of reset is synchronous, so that the
-  // downstream logic is also removed from reset synchronously. This module is designed for active-high reset use.
+  // enable clustering. Their GSR default values are provided by the INITIALIZE parameter.
 
-  (* ASYNC_REG = "TRUE" *) reg rst_in_meta  = 1'b0;
-  (* ASYNC_REG = "TRUE" *) reg rst_in_sync1 = 1'b0;
-  (* ASYNC_REG = "TRUE" *) reg rst_in_sync2 = 1'b0;
-  (* ASYNC_REG = "TRUE" *) reg rst_in_sync3 = 1'b0;
-                           reg rst_in_out   = 1'b0;
+  (* ASYNC_REG = "TRUE" *) reg i_in_meta  = INITIALIZE[0];
+  (* ASYNC_REG = "TRUE" *) reg i_in_sync1 = INITIALIZE[1];
+  (* ASYNC_REG = "TRUE" *) reg i_in_sync2 = INITIALIZE[2];
+  (* ASYNC_REG = "TRUE" *) reg i_in_sync3 = INITIALIZE[3];
+                           reg i_in_out   = INITIALIZE[4];
 
-  always @(posedge clk_in, posedge rst_in) begin
-    if (rst_in) begin
-      rst_in_meta  <= 1'b1;
-      rst_in_sync1 <= 1'b1;
-      rst_in_sync2 <= 1'b1;
-      rst_in_sync3 <= 1'b1;
-      rst_in_out   <= 1'b1;
-    end
-    else begin
-      rst_in_meta  <= 1'b0;
-      rst_in_sync1 <= rst_in_meta;
-      rst_in_sync2 <= rst_in_sync1;
-      rst_in_sync3 <= rst_in_sync2;
-      rst_in_out   <= rst_in_sync3;
-    end
+  always @(posedge clk_in) begin
+    i_in_meta  <= i_in;
+    i_in_sync1 <= i_in_meta;
+    i_in_sync2 <= i_in_sync1;
+    i_in_sync3 <= i_in_sync2;
+    i_in_out   <= i_in_sync3;
   end
 
-  assign rst_out = rst_in_out;
+  assign o_out = i_in_out;
 
 
 endmodule

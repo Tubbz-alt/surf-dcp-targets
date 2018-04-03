@@ -66,8 +66,8 @@ use ieee.numeric_std.ALL;
 library unisim;
 use unisim.vcomponents.all;
 
-library gtwizard_ultrascale_v1_6_2;
-use gtwizard_ultrascale_v1_6_2.all;
+library gtwizard_ultrascale_v1_6_5;
+use gtwizard_ultrascale_v1_6_5.all;
 
 entity GigEthGthUltraScaleCore_transceiver is
 generic

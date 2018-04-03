@@ -170,6 +170,8 @@
 module GigEthGthUltraScaleCore_gt_gtwizard_top #(
 
   parameter [191:0] C_CHANNEL_ENABLE                          = 192'b1,
+  parameter         C_PCIE_ENABLE                             = 0,
+  parameter integer C_PCIE_CORECLK_FREQ                       = 250,
   parameter integer C_COMMON_SCALING_FACTOR                   = 1,
   parameter real    C_CPLL_VCO_FREQUENCY                      = 5156.25,
   parameter integer C_FORCE_COMMONS                           = `GigEthGthUltraScaleCore_gt_FORCE_COMMONS__DO_NOT_FORCE,
@@ -177,6 +179,7 @@ module GigEthGthUltraScaleCore_gt_gtwizard_top #(
   parameter integer C_GT_TYPE                                 = `GigEthGthUltraScaleCore_gt_GT_TYPE__GTHE3,
   parameter integer C_GT_REV                                  = 17,
   parameter integer C_INCLUDE_CPLL_CAL                        = `GigEthGthUltraScaleCore_gt_INCLUDE_CPLL_CAL__DEPENDENT,
+  parameter         C_SIM_CPLL_CAL_BYPASS                     = 1'b0,
   parameter integer C_LOCATE_COMMON                           = `GigEthGthUltraScaleCore_gt_LOCATE_COMMON__CORE,
   parameter integer C_LOCATE_RESET_CONTROLLER                 = `GigEthGthUltraScaleCore_gt_LOCATE_RESET_CONTROLLER__CORE,
   parameter integer C_LOCATE_USER_DATA_WIDTH_SIZING           = `GigEthGthUltraScaleCore_gt_LOCATE_USER_DATA_WIDTH_SIZING__CORE,
@@ -308,6 +311,12 @@ module GigEthGthUltraScaleCore_gt_gtwizard_top #(
   input  wire [(`GigEthGthUltraScaleCore_gt_N_CH* 18)-1:0] gtwiz_gthe3_cpll_cal_txoutclk_period_in,
   input  wire [(`GigEthGthUltraScaleCore_gt_N_CH* 18)-1:0] gtwiz_gthe3_cpll_cal_cnt_tol_in,
   input  wire [(`GigEthGthUltraScaleCore_gt_N_CH*  1)-1:0] gtwiz_gthe3_cpll_cal_bufg_ce_in,
+  input  wire [(`GigEthGthUltraScaleCore_gt_N_CH* 18)-1:0] gtwiz_gthe4_cpll_cal_txoutclk_period_in,
+  input  wire [(`GigEthGthUltraScaleCore_gt_N_CH* 18)-1:0] gtwiz_gthe4_cpll_cal_cnt_tol_in,
+  input  wire [(`GigEthGthUltraScaleCore_gt_N_CH*  1)-1:0] gtwiz_gthe4_cpll_cal_bufg_ce_in,
+  input  wire [(`GigEthGthUltraScaleCore_gt_N_CH* 18)-1:0] gtwiz_gtye4_cpll_cal_txoutclk_period_in,
+  input  wire [(`GigEthGthUltraScaleCore_gt_N_CH* 18)-1:0] gtwiz_gtye4_cpll_cal_cnt_tol_in,
+  input  wire [(`GigEthGthUltraScaleCore_gt_N_CH*  1)-1:0] gtwiz_gtye4_cpll_cal_bufg_ce_in,
 
   // Transmitter user data width sizing helper block ports
   input  wire [(`GigEthGthUltraScaleCore_gt_N_CH*C_TX_USER_DATA_WIDTH)-1:0] gtwiz_userdata_tx_in,
@@ -1261,6 +1270,8 @@ module GigEthGthUltraScaleCore_gt_gtwizard_top #(
     // Generate GTHE3-type Transceivers Wizard submodule
     GigEthGthUltraScaleCore_gt_gtwizard_gthe3 #(
       .C_CHANNEL_ENABLE                          (C_CHANNEL_ENABLE                         ),
+      .C_PCIE_ENABLE                             (C_PCIE_ENABLE                            ),
+      .C_PCIE_CORECLK_FREQ                       (C_PCIE_CORECLK_FREQ                      ),
       .C_COMMON_SCALING_FACTOR                   (C_COMMON_SCALING_FACTOR                  ),
       .C_CPLL_VCO_FREQUENCY                      (C_CPLL_VCO_FREQUENCY                     ),
       .C_FREERUN_FREQUENCY                       (C_FREERUN_FREQUENCY                      ),
@@ -1775,6 +1786,8 @@ module GigEthGthUltraScaleCore_gt_gtwizard_top #(
     // Generate GTYE3-type Transceivers Wizard submodule
     GigEthGthUltraScaleCore_gt_gtwizard_gtye3 #(
       .C_CHANNEL_ENABLE                          (C_CHANNEL_ENABLE                         ),
+      .C_PCIE_ENABLE                             (C_PCIE_ENABLE                            ),
+      .C_PCIE_CORECLK_FREQ                       (C_PCIE_CORECLK_FREQ                      ),
       .C_COMMON_SCALING_FACTOR                   (C_COMMON_SCALING_FACTOR                  ),
       .C_FREERUN_FREQUENCY                       (C_FREERUN_FREQUENCY                      ),
       .C_GT_REV                                  (C_GT_REV                                 ),
@@ -2290,8 +2303,12 @@ module GigEthGthUltraScaleCore_gt_gtwizard_top #(
     // Generate GTHE4-type Transceivers Wizard submodule
     GigEthGthUltraScaleCore_gt_gtwizard_gthe4 #(
       .C_CHANNEL_ENABLE                          (C_CHANNEL_ENABLE                         ),
+      .C_PCIE_ENABLE                             (C_PCIE_ENABLE                            ),
+      .C_PCIE_CORECLK_FREQ                       (C_PCIE_CORECLK_FREQ                      ),
       .C_COMMON_SCALING_FACTOR                   (C_COMMON_SCALING_FACTOR                  ),
       .C_FREERUN_FREQUENCY                       (C_FREERUN_FREQUENCY                      ),
+      .C_INCLUDE_CPLL_CAL                        (C_INCLUDE_CPLL_CAL                       ),
+      .C_SIM_CPLL_CAL_BYPASS                     (C_SIM_CPLL_CAL_BYPASS                    ),
       .C_LOCATE_RESET_CONTROLLER                 (C_LOCATE_RESET_CONTROLLER                ),
       .C_LOCATE_USER_DATA_WIDTH_SIZING           (C_LOCATE_USER_DATA_WIDTH_SIZING          ),
       .C_LOCATE_RX_BUFFER_BYPASS_CONTROLLER      (C_LOCATE_RX_BUFFER_BYPASS_CONTROLLER     ),
@@ -2366,6 +2383,9 @@ module GigEthGthUltraScaleCore_gt_gtwizard_top #(
       .gtwiz_reset_rx_done_out            (gtwiz_reset_rx_done_out           ),
       .gtwiz_reset_qpll0reset_out         (gtwiz_reset_qpll0reset_out        ),
       .gtwiz_reset_qpll1reset_out         (gtwiz_reset_qpll1reset_out        ),
+      .gtwiz_gthe4_cpll_cal_txoutclk_period_in (gtwiz_gthe4_cpll_cal_txoutclk_period_in),
+      .gtwiz_gthe4_cpll_cal_cnt_tol_in         (gtwiz_gthe4_cpll_cal_cnt_tol_in        ),
+      .gtwiz_gthe4_cpll_cal_bufg_ce_in         (gtwiz_gthe4_cpll_cal_bufg_ce_in        ),
       .gtwiz_userdata_tx_in               (gtwiz_userdata_tx_in              ),
       .gtwiz_userdata_rx_out              (gtwiz_userdata_rx_out             ),
       .bgbypassb_in                       (bgbypassb_in                      ),
@@ -2817,8 +2837,12 @@ module GigEthGthUltraScaleCore_gt_gtwizard_top #(
     // Generate GTYE4-type Transceivers Wizard submodule
     GigEthGthUltraScaleCore_gt_gtwizard_gtye4 #(
       .C_CHANNEL_ENABLE                          (C_CHANNEL_ENABLE                         ),
+      .C_PCIE_ENABLE                             (C_PCIE_ENABLE                            ),
+      .C_PCIE_CORECLK_FREQ                       (C_PCIE_CORECLK_FREQ                      ),
       .C_COMMON_SCALING_FACTOR                   (C_COMMON_SCALING_FACTOR                  ),
       .C_FREERUN_FREQUENCY                       (C_FREERUN_FREQUENCY                      ),
+      .C_INCLUDE_CPLL_CAL                        (C_INCLUDE_CPLL_CAL                       ),
+      .C_SIM_CPLL_CAL_BYPASS                     (C_SIM_CPLL_CAL_BYPASS                    ),
       .C_LOCATE_RESET_CONTROLLER                 (C_LOCATE_RESET_CONTROLLER                ),
       .C_LOCATE_USER_DATA_WIDTH_SIZING           (C_LOCATE_USER_DATA_WIDTH_SIZING          ),
       .C_LOCATE_RX_BUFFER_BYPASS_CONTROLLER      (C_LOCATE_RX_BUFFER_BYPASS_CONTROLLER     ),
@@ -2893,6 +2917,9 @@ module GigEthGthUltraScaleCore_gt_gtwizard_top #(
       .gtwiz_reset_rx_done_out            (gtwiz_reset_rx_done_out           ),
       .gtwiz_reset_qpll0reset_out         (gtwiz_reset_qpll0reset_out        ),
       .gtwiz_reset_qpll1reset_out         (gtwiz_reset_qpll1reset_out        ),
+      .gtwiz_gtye4_cpll_cal_txoutclk_period_in (gtwiz_gtye4_cpll_cal_txoutclk_period_in),
+      .gtwiz_gtye4_cpll_cal_cnt_tol_in         (gtwiz_gtye4_cpll_cal_cnt_tol_in        ),
+      .gtwiz_gtye4_cpll_cal_bufg_ce_in         (gtwiz_gtye4_cpll_cal_bufg_ce_in        ),
       .gtwiz_userdata_tx_in               (gtwiz_userdata_tx_in              ),
       .gtwiz_userdata_rx_out              (gtwiz_userdata_rx_out             ),
       .bgbypassb_in                       (bgbypassb_in                      ),

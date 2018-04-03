@@ -87,14 +87,17 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-library gig_ethernet_pcs_pma_v15_2_0;
-use gig_ethernet_pcs_pma_v15_2_0.all;
+library gig_ethernet_pcs_pma_v16_0_1;
+use gig_ethernet_pcs_pma_v16_0_1.all;
 --------------------------------------------------------------------------------
 -- The entity declaration for the Core Block wrapper.
 --------------------------------------------------------------------------------
 
 entity GigEthGthUltraScaleCore_block is
-
+      generic
+      (
+       EXAMPLE_SIMULATION                      : integer   := 0          
+      );
       port(
       -- Transceiver Interface
       ---------------------
@@ -134,6 +137,10 @@ entity GigEthGthUltraScaleCore_block is
 
       configuration_vector : in std_logic_vector(4 downto 0);  -- Alternative to MDIO interface.
 
+
+      an_interrupt         : out std_logic;                    -- Interrupt to processor to signal that Auto-Negotiation has completed
+      an_adv_config_vector : in std_logic_vector(15 downto 0); -- Alternate interface to program REG4 (AN ADV)
+      an_restart_config    : in std_logic;                     -- Alternate signal to modify AN restart bit in REG0
 
       -- General IO's
       ---------------
@@ -248,7 +255,7 @@ architecture block_level of GigEthGthUltraScaleCore_block is
    -----------------------------------------------------------------------------
    -- Component Declaration for the 1000BASE-X PCS/PMA sublayer core.
    -----------------------------------------------------------------------------
-   component gig_ethernet_pcs_pma_v15_2_0
+   component gig_ethernet_pcs_pma_v16_0_1
       generic (
          C_ELABORATION_TRANSIENT_DIR : string := "";
          C_COMPONENT_NAME            : string := "";
@@ -264,9 +271,9 @@ architecture block_level of GigEthGthUltraScaleCore_block is
          C_SGMII_PHY_MODE            : boolean := false;
          C_DYNAMIC_SWITCHING         : boolean := false;
          C_SGMII_FABRIC_BUFFER       : boolean := false;
+         C_2_5G                      : boolean := false;
          C_1588                      : integer := 0;
          B_SHIFTER_ADDR              : std_logic_vector(9 downto 0) := "0101001110";
-         RX_GT_NOMINAL_LATENCY       : std_logic_vector(15 downto 0) := "0000000011001000";
          GT_RX_BYTE_WIDTH            : integer := 1
       );
       port(
@@ -275,6 +282,9 @@ architecture block_level of GigEthGthUltraScaleCore_block is
     link_timer_value : in std_logic_vector(9 downto 0) := (others => '0');
     link_timer_basex : in std_logic_vector(9 downto 0) := (others => '0');
     link_timer_sgmii : in std_logic_vector(9 downto 0) := (others => '0');
+    rx_gt_nominal_latency : in std_logic_vector(15 downto 0) := "0000000011001000";
+    speed_is_10_100       : in std_logic := '0';                 
+    speed_is_100          : in std_logic := '0'; 
     mgt_rx_reset : out std_logic;
     mgt_tx_reset : out std_logic;
     userclk : in std_logic := '0';
@@ -393,9 +403,8 @@ architecture block_level of GigEthGthUltraScaleCore_block is
   signal enablealign       : std_logic;                        -- Allow the transceivers to serially realign to a comma character.
   signal status_vector_i   : std_logic_vector(15 downto 0);    -- Internal status vector signal.
 
-constant EXAMPLE_SIMULATION    : integer := 0 ;
 
-  signal phyaddress : std_logic_vector(4 downto 0);
+  signal link_timer_value     : std_logic_vector(9 downto 0);  -- Programmable Auto-Negotiation Link Timer Control
 
 
 signal gt0_txresetdone_out_i : std_logic;
@@ -406,19 +415,23 @@ signal reset_done_i : std_logic;
 signal mdio_o_int : std_logic;
 signal mdio_t_int : std_logic;
 
+signal rx_gt_nominal_latency : std_logic_vector(15 downto 0);
+
 begin
+rx_gt_nominal_latency <=  std_logic_vector(to_unsigned(188, 16));
+     
 
 
 
 
 
-phyaddress <= std_logic_vector(to_unsigned(1, phyaddress'length));
+  link_timer_value <= "0000000100" when EXAMPLE_SIMULATION =1 else "0100111101" ;
 
   ------------------------------------------------------------------------------
   -- Instantiate the core
   ------------------------------------------------------------------------------
 
-  GigEthGthUltraScaleCore_core : gig_ethernet_pcs_pma_v15_2_0
+  GigEthGthUltraScaleCore_core : gig_ethernet_pcs_pma_v16_0_1
     generic map (
       C_ELABORATION_TRANSIENT_DIR => "BlankString",
       C_COMPONENT_NAME            => "GigEthGthUltraScaleCore",
@@ -429,16 +442,14 @@ phyaddress <= std_logic_vector(to_unsigned(1, phyaddress'length));
       C_HAS_TEMAC                 => true,
       C_USE_TBI                   => false,
       C_USE_LVDS                  => false,
-      C_HAS_AN                    => false,
+      C_HAS_AN                    => true,
       C_HAS_MDIO                  => false,
       C_SGMII_PHY_MODE            => false,
       C_DYNAMIC_SWITCHING         => false,
       C_SGMII_FABRIC_BUFFER       => true,
       C_1588                      => 0,
-
-      
       B_SHIFTER_ADDR              => "0101010000",
-      RX_GT_NOMINAL_LATENCY       => "0000000010001100",
+      C_2_5G                      => false,
       GT_RX_BYTE_WIDTH            => 1
     )
     port map (
@@ -446,6 +457,11 @@ phyaddress <= std_logic_vector(to_unsigned(1, phyaddress'length));
       mgt_tx_reset         => mgt_tx_reset,
       userclk              => userclk2,
       userclk2             => userclk2,
+      rx_gt_nominal_latency => rx_gt_nominal_latency, 
+      speed_is_10_100      => '0',
+      speed_is_100         => '0',
+      
+ 
       dcm_locked           => mmcm_locked,
       rxbufstatus          => rxbufstatus,
       rxchariscomma        => rxchariscomma,
@@ -477,15 +493,14 @@ phyaddress <= std_logic_vector(to_unsigned(1, phyaddress'length));
       configuration_valid  => '0',
       mdio_out             => open,
       mdio_tri             => open,
-      an_interrupt         => open,
-      an_adv_config_vector => (others => '0'),
-      an_restart_config    => '0',
-      link_timer_value     => (others => '0'),
+      an_interrupt         => an_interrupt,
+      an_adv_config_vector => an_adv_config_vector,
       an_adv_config_val    => '0',
+      an_restart_config    => an_restart_config,
+      basex_or_sgmii       => '0',
+      link_timer_value     => link_timer_value,
       link_timer_basex     => (others => '0'),
       link_timer_sgmii     => (others => '0'),
-      
-      basex_or_sgmii       => '0',
       status_vector        => status_vector_i,
       an_enable            => open,
       speed_selection      => open,

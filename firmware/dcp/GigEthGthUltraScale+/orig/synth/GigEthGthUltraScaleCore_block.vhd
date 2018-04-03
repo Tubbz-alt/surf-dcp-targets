@@ -138,6 +138,10 @@ entity GigEthGthUltraScaleCore_block is
       configuration_vector : in std_logic_vector(4 downto 0);  -- Alternative to MDIO interface.
 
 
+      an_interrupt         : out std_logic;                    -- Interrupt to processor to signal that Auto-Negotiation has completed
+      an_adv_config_vector : in std_logic_vector(15 downto 0); -- Alternate interface to program REG4 (AN ADV)
+      an_restart_config    : in std_logic;                     -- Alternate signal to modify AN restart bit in REG0
+
       -- General IO's
       ---------------
       status_vector        : out std_logic_vector(15 downto 0); -- Core status.
@@ -402,6 +406,7 @@ architecture block_level of GigEthGthUltraScaleCore_block is
   signal status_vector_i   : std_logic_vector(15 downto 0);    -- Internal status vector signal.
 
 
+  signal link_timer_value     : std_logic_vector(9 downto 0);  -- Programmable Auto-Negotiation Link Timer Control
 
 
 signal gt0_txresetdone_out_i : std_logic;
@@ -422,6 +427,7 @@ rx_gt_nominal_latency <=  std_logic_vector(to_unsigned(216, 16));
 
 
 
+  link_timer_value <= "0000000100" when EXAMPLE_SIMULATION =1 else "0100111101" ;
 
   ------------------------------------------------------------------------------
   -- Instantiate the core
@@ -438,7 +444,7 @@ rx_gt_nominal_latency <=  std_logic_vector(to_unsigned(216, 16));
       C_HAS_TEMAC                 => true,
       C_USE_TBI                   => false,
       C_USE_LVDS                  => false,
-      C_HAS_AN                    => false,
+      C_HAS_AN                    => true,
       C_HAS_MDIO                  => false,
       C_SGMII_PHY_MODE            => false,
       C_DYNAMIC_SWITCHING         => false,
@@ -489,15 +495,14 @@ rx_gt_nominal_latency <=  std_logic_vector(to_unsigned(216, 16));
       configuration_valid  => '0',
       mdio_out             => open,
       mdio_tri             => open,
-      an_interrupt         => open,
-      an_adv_config_vector => (others => '0'),
-      an_restart_config    => '0',
-      link_timer_value     => (others => '0'),
+      an_interrupt         => an_interrupt,
+      an_adv_config_vector => an_adv_config_vector,
       an_adv_config_val    => '0',
+      an_restart_config    => an_restart_config,
+      basex_or_sgmii       => '0',
+      link_timer_value     => link_timer_value,
       link_timer_basex     => (others => '0'),
       link_timer_sgmii     => (others => '0'),
-      
-      basex_or_sgmii       => '0',
       status_vector        => status_vector_i,
       an_enable            => open,
       speed_selection      => open,

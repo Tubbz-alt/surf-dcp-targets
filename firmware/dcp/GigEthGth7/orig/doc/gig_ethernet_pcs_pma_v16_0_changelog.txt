@@ -1,3 +1,49 @@
+2016.4:
+ * Version 16.0 (Rev. 1)
+ * Bugfix for clock correction in rx elastic buffer for Asynchronous LVDS modes.
+ * Updates in constraints for SGMII mode when interfaced with GEM.
+ * For 7-Series LVDS transceiver dependency of Transmitter reset on phy loss of sync removed.
+ * Revision change in one or more subcores
+
+2016.3:
+ * Version 16.0
+ * Port Change: phyaddr port added ,earlier this was a core parameter.
+ * Bug Fix: naming of generated clock removed from block XDC while interfacing with GEM,to avoid naming conflict in case of multiple instances of IP
+ * New Feature: Added support for Multi-lane Asynchronous SGMII/BASEX over LVDS for Ultrascale and Ultrascale+ devices
+ * New Feature: Added option to select GT location for Ultrascale and Ultrascale+ devices
+ * Feature Enhancement: Added support for Spartan-7 Devices.
+ * Feature Enhancement: Added logic to perform clock correction on C1/C2 code groups in recieve elastic buffer.
+ * Feature Enhancement: Added option to choose from Synchronous SGMII based on component mode and Asynchronous SGMII solution based on Native mode of IO for Ultrascale.
+ * Other: Source HDL files are concatenated into a single file to speed up synthesis and simulation. No changes required by the user
+ * Revision change in one or more subcores
+
+2016.2:
+ * Version 15.2 (Rev. 1)
+ * Bugfix for extra port required by GTWizard for older Ultrascale devices which used callibration logic.
+
+2016.1:
+ * Version 15.2
+ * Adding GTYE3 and GTYE4 support.
+ * Adding selection option for GTH and GTY transceivers for Ultrascale and Ultrascale+ devices.
+ * Added support for Virtex Ultrascale+ devices.
+ * Added support to interface with GEM of Zynq Ultrascale+ devices.
+ * Added support for GT in example design for Ultrascale and Ultrascale+ devices.
+ * Added support for Rx GMII interface to work at RXOUTCLK.
+ * Changes to HDL library management to support Vivado IP simulation library
+
+2015.4.2:
+ * Version 15.1 (Rev. 1)
+ * No changes
+
+2015.4.1:
+ * Version 15.1 (Rev. 1)
+ * No changes
+
+2015.4:
+ * Version 15.1 (Rev. 1)
+ * Updated Default Latency numbers of GTXE2 and GTHE2 transceivers.
+ * Removing Transceiver_type user parameter as its redundant and not user editable.
+
 2015.3:
  * Version 15.1
  * Added Zynq Ultrascale plus support.
@@ -115,7 +161,7 @@
  * Added parameter EXAMPLE_SIMULATION to be tied 1 in simulation.
  * Marking Production for Kintex-7 family.
 
-(c) Copyright 2002 - 2015 Xilinx, Inc. All rights reserved.
+(c) Copyright 2002 - 2017 Xilinx, Inc. All rights reserved.
 
 This file contains confidential and proprietary information
 of Xilinx, Inc. and is protected under U.S. and

@@ -42,6 +42,7 @@ set_false_path -to [get_pins -hier -filter { name =~ */gtwizard_inst/*/sync_*/*D
 set_false_path -to [get_pins -hier -filter { name =~ */gtwizard_inst/*/gtwizard_i/gt0_GTWIZARD_i/gtrxreset_seq_i/sync_*/*D } ]
 
 
+
 # false path constraints to async inputs coming directly to synchronizer
 set_false_path -to [get_pins -hier -filter {name =~ *SYNC_*/data_sync*/D }]
 set_false_path -to [get_pins -hier -filter {name =~ *transceiver_inst/sync_block_data_valid/data_sync*/D }]
@@ -51,5 +52,14 @@ set_false_path -to [get_pins -hier -filter {name =~ *sync_block_rx_reset_done/da
 
 
 set_false_path -to [get_pins -hier -filter {name =~ *reset_sync*/PRE }]
+
+
+ 
+
+
+
+
+
+
 
 

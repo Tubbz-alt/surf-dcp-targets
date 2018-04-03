@@ -260,9 +260,9 @@ begin
   --Alias section, signals used within this module mapped to output ports:
   RETRY_COUNTER     <= STD_LOGIC_VECTOR(TO_UNSIGNED(retry_counter_int,RETRY_COUNTER_BITWIDTH));
   RUN_PHALIGNMENT   <= run_phase_alignment_int;
-  RX_FSM_RESET_DONE <= rx_fsm_reset_done_int;
+  RX_FSM_RESET_DONE <= rx_fsm_reset_done_int and PHALIGNMENT_DONE;
   GTRXRESET <= gtrxreset_i; 
-  MMCM_RESET <= mmcm_reset_i; 
+  MMCM_RESET <= not rxpmaresetdone_i; 
   process(STABLE_CLOCK,SOFT_RESET)
   begin
     if (SOFT_RESET = '1') then

@@ -1,10 +1,10 @@
--- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2015.3 (lin64) Build 1368829 Mon Sep 28 20:06:39 MDT 2015
--- Date        : Tue Feb  9 14:39:28 2016
--- Host        : rdusr217.slac.stanford.edu running 64-bit Red Hat Enterprise Linux Server release 6.7 (Santiago)
+-- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+-- Date        : Tue Apr  3 11:08:27 2018
+-- Host        : rdsrv107.slac.stanford.edu running 64-bit Red Hat Enterprise Linux Server release 6.9 (Santiago)
 -- Command     : write_vhdl -force -mode synth_stub
---               /u1/ruckman/build/GigEthGth7Dcp/GigEthGth7Dcp_project.srcs/sources_1/ip/GigEthGth7Core/GigEthGth7Core_stub.vhdl
+--               /u1/ruckman/build/GigEthGth7/GigEthGth7_project.srcs/sources_1/ip/GigEthGth7Core/GigEthGth7Core_stub.vhdl
 -- Design      : GigEthGth7Core
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7vx690tffg1761-3
@@ -40,6 +40,9 @@ entity GigEthGth7Core is
     gmii_rx_er : out STD_LOGIC;
     gmii_isolate : out STD_LOGIC;
     configuration_vector : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    an_interrupt : out STD_LOGIC;
+    an_adv_config_vector : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    an_restart_config : in STD_LOGIC;
     status_vector : out STD_LOGIC_VECTOR ( 15 downto 0 );
     reset : in STD_LOGIC;
     signal_detect : in STD_LOGIC;
@@ -53,8 +56,8 @@ architecture stub of GigEthGth7Core is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "gtrefclk,gtrefclk_bufg,txp,txn,rxp,rxn,resetdone,cplllock,mmcm_reset,txoutclk,rxoutclk,userclk,userclk2,rxuserclk,rxuserclk2,pma_reset,mmcm_locked,independent_clock_bufg,gmii_txd[7:0],gmii_tx_en,gmii_tx_er,gmii_rxd[7:0],gmii_rx_dv,gmii_rx_er,gmii_isolate,configuration_vector[4:0],status_vector[15:0],reset,signal_detect,gt0_qplloutclk_in,gt0_qplloutrefclk_in";
+attribute black_box_pad_pin of stub : architecture is "gtrefclk,gtrefclk_bufg,txp,txn,rxp,rxn,resetdone,cplllock,mmcm_reset,txoutclk,rxoutclk,userclk,userclk2,rxuserclk,rxuserclk2,pma_reset,mmcm_locked,independent_clock_bufg,gmii_txd[7:0],gmii_tx_en,gmii_tx_er,gmii_rxd[7:0],gmii_rx_dv,gmii_rx_er,gmii_isolate,configuration_vector[4:0],an_interrupt,an_adv_config_vector[15:0],an_restart_config,status_vector[15:0],reset,signal_detect,gt0_qplloutclk_in,gt0_qplloutrefclk_in";
 attribute x_core_info : string;
-attribute x_core_info of stub : architecture is "gig_ethernet_pcs_pma_v15_1_0,Vivado 2015.3";
+attribute x_core_info of stub : architecture is "gig_ethernet_pcs_pma_v16_0_1,Vivado 2016.4";
 begin
 end;

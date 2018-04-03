@@ -85,6 +85,7 @@ generic
 port
 (
     mmcm_reset                              : out  std_logic;
+    recclk_mmcm_reset                       : out  std_logic;
     SYSCLK_IN                               : in   std_logic;
     SOFT_RESET_TX_IN                        : in   std_logic;
     SOFT_RESET_RX_IN                        : in   std_logic;
@@ -788,7 +789,7 @@ gt0_rxresetfsm_i:  GigEthGth7Core_RX_STARTUP_FSM
         DATA_VALID                      =>      GT0_DATA_VALID_IN,
         TXUSERRDY                       =>      tied_to_vcc_i,
         GTRXRESET                       =>      gt0_gtrxreset_t,
-        MMCM_RESET                      =>      open,
+        MMCM_RESET                      =>      recclk_mmcm_reset,
         QPLL_RESET                      =>      open,
         CPLL_RESET                      =>      open,
         RX_FSM_RESET_DONE               =>      GT0_RX_FSM_RESET_DONE_OUT,

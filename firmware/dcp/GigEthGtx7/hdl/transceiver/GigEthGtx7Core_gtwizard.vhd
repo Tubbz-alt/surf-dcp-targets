@@ -77,6 +77,7 @@ generic
 port
 (
     mmcm_reset                              : out  std_logic; 
+    recclk_mmcm_reset                       : out  std_logic; 
     SYSCLK_IN                               : in   std_logic;
     SOFT_RESET_TX_IN                        : in   std_logic;
     SOFT_RESET_RX_IN                        : in   std_logic;
@@ -233,6 +234,7 @@ generic
 port
 (
     mmcm_reset                              : out  std_logic; 
+    recclk_mmcm_reset                       : out  std_logic; 
     SYSCLK_IN                               : in   std_logic;
     SOFT_RESET_TX_IN                        : in   std_logic;
     SOFT_RESET_RX_IN                        : in   std_logic;
@@ -384,6 +386,7 @@ begin
     port map
     (
         mmcm_reset                      =>      mmcm_reset,
+        recclk_mmcm_reset               =>      recclk_mmcm_reset,
         SYSCLK_IN                       =>      SYSCLK_IN,
         SOFT_RESET_TX_IN                =>      SOFT_RESET_TX_IN,
         SOFT_RESET_RX_IN                =>      SOFT_RESET_RX_IN,

@@ -73,6 +73,7 @@ generic
 );
    port (
       mmcm_reset          : out   std_logic;
+      recclk_mmcm_reset   : out   std_logic;
       data_valid          : in    std_logic;
       independent_clock   : in    std_logic;
       encommaalign        : in    std_logic;
@@ -192,6 +193,7 @@ architecture wrapper of GigEthGtx7Core_transceiver is
   port
   (
     mmcm_reset                              : out   std_logic;
+    recclk_mmcm_reset                       : out   std_logic;
     SYSCLK_IN                               : in   std_logic;
     SOFT_RESET_TX_IN                        : in   std_logic;
     SOFT_RESET_RX_IN                        : in   std_logic;
@@ -679,6 +681,7 @@ begin
     )    
     port map (
         mmcm_reset                      =>      mmcm_reset,
+        recclk_mmcm_reset               =>      recclk_mmcm_reset,
         ------------------------------- Loopback Ports -----------------------------
         gt0_loopback_in                 =>      gt0_loopback_in,
     --------------------- RX Initialization and Reset Ports --------------------

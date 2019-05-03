@@ -151,6 +151,8 @@ entity GigEthGtx7Core is
       reset                : in std_logic;                     -- Asynchronous reset for entire core.
      
       signal_detect         : in std_logic;                      -- Input from PMD to indicate presence of optical input.
+      gt0_rxpolarity_in     : in std_logic := '0';
+      gt0_txpolarity_in     : in std_logic := '0';
       gt0_qplloutclk_in      : in  std_logic;
       gt0_qplloutrefclk_in   : in  std_logic
 
@@ -217,6 +219,8 @@ architecture wrapper of GigEthGtx7Core is
       reset                : in std_logic;                     -- Asynchronous reset for entire core.
   
       signal_detect        : in std_logic;                      -- Input from PMD to indicate presence of optical input.
+      gt0_txpolarity_in    : in std_logic;
+      gt0_rxpolarity_in    : in std_logic;
 
       gt0_qplloutclk_in      : in  std_logic;
       gt0_qplloutrefclk_in   : in  std_logic
@@ -281,6 +285,8 @@ begin
       status_vector             => status_vector,
       reset                     => reset,
 
+      gt0_txpolarity_in         => gt0_txpolarity_in,
+      gt0_rxpolarity_in         => gt0_rxpolarity_in,
    
    
 

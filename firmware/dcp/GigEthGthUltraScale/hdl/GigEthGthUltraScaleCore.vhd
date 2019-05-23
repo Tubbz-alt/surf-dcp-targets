@@ -149,7 +149,9 @@ entity GigEthGthUltraScaleCore is
       status_vector        : out std_logic_vector(15 downto 0); -- Core status.
       reset                : in std_logic;                     -- Asynchronous reset for entire core.
      
-      signal_detect         : in std_logic                      -- Input from PMD to indicate presence of optical input.
+      signal_detect        : in std_logic;                      -- Input from PMD to indicate presence of optical input.
+      gt0_txpolarity_in    : in  std_logic := '0';
+      gt0_rxpolarity_in    : in  std_logic := '0'
 
       );
 end GigEthGthUltraScaleCore;
@@ -212,7 +214,9 @@ architecture wrapper of GigEthGthUltraScaleCore is
       status_vector        : out std_logic_vector(15 downto 0); -- Core status.
       reset                : in std_logic;                     -- Asynchronous reset for entire core.
   
-      signal_detect        : in std_logic                      -- Input from PMD to indicate presence of optical input.
+      signal_detect        : in std_logic;                     -- Input from PMD to indicate presence of optical input.
+      gt0_txpolarity_in    : in  std_logic;
+      gt0_rxpolarity_in    : in  std_logic
 
       );
    end component;
@@ -276,7 +280,9 @@ begin
    
    
 
-          signal_detect        => signal_detect
+          signal_detect        => signal_detect,
+      gt0_txpolarity_in        => gt0_txpolarity_in,
+      gt0_rxpolarity_in        => gt0_rxpolarity_in
 
       );
 end wrapper;

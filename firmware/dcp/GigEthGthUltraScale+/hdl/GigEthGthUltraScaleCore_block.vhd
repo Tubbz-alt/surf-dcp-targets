@@ -149,7 +149,9 @@ entity GigEthGthUltraScaleCore_block is
       
       
       gtpowergood          : out std_logic;
-      signal_detect        : in std_logic                      -- Input from PMD to indicate presence of optical input.
+      signal_detect        : in std_logic;                     -- Input from PMD to indicate presence of optical input.
+      gt0_txpolarity_in    : in  std_logic := '0';
+      gt0_rxpolarity_in    : in  std_logic := '0'
       );
 end GigEthGthUltraScaleCore_block;
 
@@ -605,14 +607,14 @@ rx_gt_nominal_latency <=  std_logic_vector(to_unsigned(216, 16));
       gt0_drprdy_out            => open,
       gt0_drpwe_in              => '0',
       gt0_rxcommadet_out        => open,
-      gt0_txpolarity_in         => '0',
+      gt0_txpolarity_in         => gt0_txpolarity_in,
       -- gt0_txdiffctrl_in         => "11000",
       gt0_txdiffctrl_in         => "11111", -- LLR 14DEC2017
       
       gt0_txinhibit_in          => '0',
       gt0_txpostcursor_in       => (others=>'0'),
       gt0_txprecursor_in        => (others=>'0'),
-      gt0_rxpolarity_in         => '0',
+      gt0_rxpolarity_in         => gt0_rxpolarity_in,
       gt0_rxdfelpmreset_in      => '0',
       gt0_rxlpmen_in            => '1',
       gt0_txprbssel_in          => (others=>'0'),

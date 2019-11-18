@@ -66,6 +66,8 @@ USE IEEE.std_logic_unsigned.ALL;
 library unisim;
 use unisim.vcomponents.all;
 
+library surf; 
+
 entity  Salt7SeriesCore_sgmii_phy_iob is 
 port (
    clk625           : in  std_logic;
@@ -173,7 +175,7 @@ port map(
 tx_rst_208   <= rst208_r or soft_tx_reset_208;
 rx_rst_208   <= rst208_r or soft_rx_reset_208;
 
-RstSync_Inst : entity work.RstSync
+RstSync_Inst : entity surf.RstSync
    port map (
       clk      => refClk200,
       asyncRst => rx_rst_208,
@@ -216,7 +218,7 @@ begin
   end if;
 end process;
 
-U_data_idly_requested_value : entity work.SynchronizerFifo
+U_data_idly_requested_value : entity surf.SynchronizerFifo
    generic map (
       DATA_WIDTH_G => 6)
    port map (
@@ -276,7 +278,7 @@ end process;
       LDPIPEEN      => '0'        
    );
    
-U_data_dly_val_out : entity work.SynchronizerFifo
+U_data_dly_val_out : entity surf.SynchronizerFifo
    generic map (
       DATA_WIDTH_G => 5)
    port map (
@@ -389,7 +391,7 @@ begin
   end if;
 end process;
 
-U_mon_idly_requested_value : entity work.SynchronizerFifo
+U_mon_idly_requested_value : entity surf.SynchronizerFifo
    generic map (
       DATA_WIDTH_G => 6)
    port map (
@@ -448,7 +450,7 @@ end process;
       LDPIPEEN    => '0'        
    );
    
-U_mon_dly_val_out : entity work.SynchronizerFifo
+U_mon_dly_val_out : entity surf.SynchronizerFifo
    generic map (
       DATA_WIDTH_G => 5)
    port map (

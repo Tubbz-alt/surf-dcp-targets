@@ -84,7 +84,7 @@ use unisim.vcomponents.all;
 
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.numeric_std.all; 
+use ieee.numeric_std.all;
 library gig_ethernet_pcs_pma_v16_0_1;
 use gig_ethernet_pcs_pma_v16_0_1.all;
 
@@ -95,44 +95,51 @@ use gig_ethernet_pcs_pma_v16_0_1.all;
 --------------------------------------------------------------------------------
 
 entity GigEthGtx7Core is
-  generic
-(
-    EXAMPLE_SIMULATION                      : integer   := 0
-);
-      port(
+   generic
+      (
+         EXAMPLE_SIMULATION : integer := 0
+         );
+   port(
       -- Transceiver Interface
       ---------------------
 
 
-      gtrefclk                 : in  std_logic;                           -- Very high quality clock for GT transceiver.
-      gtrefclk_bufg            : in  std_logic;
-      
-      txp                  : out std_logic;                    -- Differential +ve of serial transmission from PMA to PMD.
-      txn                  : out std_logic;                    -- Differential -ve of serial transmission from PMA to PMD.
-      rxp                  : in std_logic;                     -- Differential +ve for serial reception from PMD to PMA.
-      rxn                  : in std_logic;                     -- Differential -ve for serial reception from PMD to PMA.
-      resetdone                : out std_logic;                           -- The GT transceiver has completed its reset cycle
-      cplllock                : out std_logic;                           -- The GT transceiver has completed its reset cycle
-      mmcm_reset              : out std_logic;         
-      txoutclk                 : out std_logic;                     
-      rxoutclk                 : out std_logic;                     
-      userclk                  : in  std_logic;                     
-      userclk2                 : in  std_logic;                     
-      rxuserclk                  : in  std_logic;                   
-      rxuserclk2                 : in  std_logic;                   
-      pma_reset                : in  std_logic;                           -- transceiver PMA reset signal
-      mmcm_locked              : in  std_logic;                           -- MMCM Locked
-      independent_clock_bufg : in std_logic;                   
+      gtrefclk      : in std_logic;     -- Very high quality clock for GT transceiver.
+      gtrefclk_bufg : in std_logic;
 
+      txp                    : out std_logic;  -- Differential +ve of serial transmission from PMA to PMD.
+      txn                    : out std_logic;  -- Differential -ve of serial transmission from PMA to PMD.
+      rxp                    : in  std_logic;  -- Differential +ve for serial reception from PMD to PMA.
+      rxn                    : in  std_logic;  -- Differential -ve for serial reception from PMD to PMA.
+      resetdone              : out std_logic;  -- The GT transceiver has completed its reset cycle
+      cplllock               : out std_logic;  -- The GT transceiver has completed its reset cycle
+      mmcm_reset             : out std_logic;
+      txoutclk               : out std_logic;
+      rxoutclk               : out std_logic;
+      userclk                : in  std_logic;
+      userclk2               : in  std_logic;
+      rxuserclk              : in  std_logic;
+      rxuserclk2             : in  std_logic;
+      pma_reset              : in  std_logic;  -- transceiver PMA reset signal
+      mmcm_locked            : in  std_logic;  -- MMCM Locked
+      independent_clock_bufg : in  std_logic;
+      -- DRP Interface
+      drpaddr_in             : in  std_logic_vector(8 downto 0);
+      drpclk_in              : in  std_logic;
+      drpdi_in               : in  std_logic_vector(15 downto 0);
+      drpdo_out              : out std_logic_vector(15 downto 0);
+      drpen_in               : in  std_logic;
+      drprdy_out             : out std_logic;
+      drpwe_in               : in  std_logic;
       -- GMII Interface
       -----------------
-      gmii_txd             : in std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
-      gmii_tx_en           : in std_logic;                     -- Transmit control signal from client MAC.
-      gmii_tx_er           : in std_logic;                     -- Transmit control signal from client MAC.
-      gmii_rxd             : out std_logic_vector(7 downto 0); -- Received Data to client MAC.
-      gmii_rx_dv           : out std_logic;                    -- Received control signal to client MAC.
-      gmii_rx_er           : out std_logic;                    -- Received control signal to client MAC.
-      gmii_isolate         : out std_logic;                    -- Tristate control to electrically isolate GMII.
+      gmii_txd               : in  std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
+      gmii_tx_en             : in  std_logic;  -- Transmit control signal from client MAC.
+      gmii_tx_er             : in  std_logic;  -- Transmit control signal from client MAC.
+      gmii_rxd               : out std_logic_vector(7 downto 0);  -- Received Data to client MAC.
+      gmii_rx_dv             : out std_logic;  -- Received control signal to client MAC.
+      gmii_rx_er             : out std_logic;  -- Received control signal to client MAC.
+      gmii_isolate           : out std_logic;  -- Tristate control to electrically isolate GMII.
 
       -- Management: Alternative to MDIO Interface
       --------------------------------------------
@@ -140,21 +147,21 @@ entity GigEthGtx7Core is
       configuration_vector : in std_logic_vector(4 downto 0);  -- Alternative to MDIO interface.
 
 
-      an_interrupt         : out std_logic;                    -- Interrupt to processor to signal that Auto-Negotiation has completed
-      an_adv_config_vector : in std_logic_vector(15 downto 0); -- Alternate interface to program REG4 (AN ADV)
-      an_restart_config    : in std_logic;                     -- Alternate signal to modify AN restart bit in REG0
+      an_interrupt         : out std_logic;  -- Interrupt to processor to signal that Auto-Negotiation has completed
+      an_adv_config_vector : in  std_logic_vector(15 downto 0);  -- Alternate interface to program REG4 (AN ADV)
+      an_restart_config    : in  std_logic;  -- Alternate signal to modify AN restart bit in REG0
 
 
       -- General IO's
       ---------------
-      status_vector        : out std_logic_vector(15 downto 0); -- Core status.
-      reset                : in std_logic;                     -- Asynchronous reset for entire core.
-     
-      signal_detect         : in std_logic;                      -- Input from PMD to indicate presence of optical input.
-      gt0_rxpolarity_in     : in std_logic := '0';
-      gt0_txpolarity_in     : in std_logic := '0';
-      gt0_qplloutclk_in      : in  std_logic;
-      gt0_qplloutrefclk_in   : in  std_logic
+      status_vector : out std_logic_vector(15 downto 0);  -- Core status.
+      reset         : in  std_logic;                      -- Asynchronous reset for entire core.
+
+      signal_detect        : in std_logic;  -- Input from PMD to indicate presence of optical input.
+      gt0_rxpolarity_in    : in std_logic := '0';
+      gt0_txpolarity_in    : in std_logic := '0';
+      gt0_qplloutclk_in    : in std_logic;
+      gt0_qplloutrefclk_in : in std_logic
 
       );
 end GigEthGtx7Core;
@@ -162,139 +169,155 @@ end GigEthGtx7Core;
 
 architecture wrapper of GigEthGtx7Core is
 
-   attribute DowngradeIPIdentifiedWarnings: string;
+   attribute DowngradeIPIdentifiedWarnings            : string;
    attribute DowngradeIPIdentifiedWarnings of wrapper : architecture is "yes";
 
    component GigEthGtx7Core_block
-  generic
-(
-    EXAMPLE_SIMULATION                      : integer   := 0
-);
+      generic
+         (
+            EXAMPLE_SIMULATION : integer := 0
+            );
       port(
-      -- Transceiver Interface
-      ---------------------
+         -- Transceiver Interface
+         ---------------------
 
-      gtrefclk                 : in  std_logic;                           -- Very high quality clock for GT transceiver.
-      gtrefclk_bufg            : in  std_logic;                           
-      
-      txp                  : out std_logic;                    -- Differential +ve of serial transmission from PMA to PMD.
-      txn                  : out std_logic;                    -- Differential -ve of serial transmission from PMA to PMD.
-      rxp                  : in std_logic;                     -- Differential +ve for serial reception from PMD to PMA.
-      rxn                  : in std_logic;                     -- Differential -ve for serial reception from PMD to PMA.
-      resetdone                : out std_logic;                           -- The GT transceiver has completed its reset cycle
-      cplllock                : out std_logic;                           -- The GT transceiver has completed its reset cycle
-      mmcm_reset              : out std_logic;         
-      txoutclk                 : out std_logic;                           -- txoutclk from GT transceiver (62.5MHz)
-      rxoutclk                 : out std_logic;                           -- txoutclk from GT transceiver (62.5MHz)
-      userclk                  : in  std_logic;                           
-      userclk2                 : in  std_logic;                           
-      rxuserclk                  : in  std_logic;                          
-      rxuserclk2                 : in  std_logic;                          
-      independent_clock_bufg : in std_logic;               
-      pma_reset                : in  std_logic;                           -- transceiver PMA reset signal
-      mmcm_locked              : in  std_logic;                           -- MMCM Locked
-      -- GMII Interface
-      -----------------
-      gmii_txd             : in std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
-      gmii_tx_en           : in std_logic;                     -- Transmit control signal from client MAC.
-      gmii_tx_er           : in std_logic;                     -- Transmit control signal from client MAC.
-      gmii_rxd             : out std_logic_vector(7 downto 0); -- Received Data to client MAC.
-      gmii_rx_dv           : out std_logic;                    -- Received control signal to client MAC.
-      gmii_rx_er           : out std_logic;                    -- Received control signal to client MAC.
-      gmii_isolate         : out std_logic;                    -- Tristate control to electrically isolate GMII.
+         gtrefclk      : in std_logic;  -- Very high quality clock for GT transceiver.
+         gtrefclk_bufg : in std_logic;
 
-      -- Management: Alternative to MDIO Interface
-      --------------------------------------------
+         txp                    : out std_logic;  -- Differential +ve of serial transmission from PMA to PMD.
+         txn                    : out std_logic;  -- Differential -ve of serial transmission from PMA to PMD.
+         rxp                    : in  std_logic;  -- Differential +ve for serial reception from PMD to PMA.
+         rxn                    : in  std_logic;  -- Differential -ve for serial reception from PMD to PMA.
+         resetdone              : out std_logic;  -- The GT transceiver has completed its reset cycle
+         cplllock               : out std_logic;  -- The GT transceiver has completed its reset cycle
+         mmcm_reset             : out std_logic;
+         txoutclk               : out std_logic;  -- txoutclk from GT transceiver (62.5MHz)
+         rxoutclk               : out std_logic;  -- txoutclk from GT transceiver (62.5MHz)
+         userclk                : in  std_logic;
+         userclk2               : in  std_logic;
+         rxuserclk              : in  std_logic;
+         rxuserclk2             : in  std_logic;
+         independent_clock_bufg : in  std_logic;
+         pma_reset              : in  std_logic;  -- transceiver PMA reset signal
+         mmcm_locked            : in  std_logic;  -- MMCM Locked
+         -- DRP Interface
+         gt0_drpaddr_in         : in  std_logic_vector(8 downto 0);
+         gt0_drpclk_in          : in  std_logic;
+         gt0_drpdi_in           : in  std_logic_vector(15 downto 0);
+         gt0_drpdo_out          : out std_logic_vector(15 downto 0);
+         gt0_drpen_in           : in  std_logic;
+         gt0_drprdy_out         : out std_logic;
+         gt0_drpwe_in           : in  std_logic;
 
-      configuration_vector : in std_logic_vector(4 downto 0);  -- Alternative to MDIO interface.
+         -- GMII Interface
+         -----------------
+         gmii_txd     : in  std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
+         gmii_tx_en   : in  std_logic;  -- Transmit control signal from client MAC.
+         gmii_tx_er   : in  std_logic;  -- Transmit control signal from client MAC.
+         gmii_rxd     : out std_logic_vector(7 downto 0);  -- Received Data to client MAC.
+         gmii_rx_dv   : out std_logic;  -- Received control signal to client MAC.
+         gmii_rx_er   : out std_logic;  -- Received control signal to client MAC.
+         gmii_isolate : out std_logic;  -- Tristate control to electrically isolate GMII.
+
+         -- Management: Alternative to MDIO Interface
+         --------------------------------------------
+
+         configuration_vector : in std_logic_vector(4 downto 0);  -- Alternative to MDIO interface.
 
 
-      an_interrupt         : out std_logic;                    -- Interrupt to processor to signal that Auto-Negotiation has completed
-      an_adv_config_vector : in std_logic_vector(15 downto 0); -- Alternate interface to program REG4 (AN ADV)
-      an_restart_config    : in std_logic;                     -- Alternate signal to modify AN restart bit in REG0
+         an_interrupt         : out std_logic;  -- Interrupt to processor to signal that Auto-Negotiation has completed
+         an_adv_config_vector : in  std_logic_vector(15 downto 0);  -- Alternate interface to program REG4 (AN ADV)
+         an_restart_config    : in  std_logic;  -- Alternate signal to modify AN restart bit in REG0
 
-      -- General IO's
-      ---------------
-      status_vector        : out std_logic_vector(15 downto 0); -- Core status.
-      reset                : in std_logic;                     -- Asynchronous reset for entire core.
-  
-      signal_detect        : in std_logic;                      -- Input from PMD to indicate presence of optical input.
-      gt0_txpolarity_in    : in std_logic;
-      gt0_rxpolarity_in    : in std_logic;
+         -- General IO's
+         ---------------
+         status_vector : out std_logic_vector(15 downto 0);  -- Core status.
+         reset         : in  std_logic;                      -- Asynchronous reset for entire core.
 
-      gt0_qplloutclk_in      : in  std_logic;
-      gt0_qplloutrefclk_in   : in  std_logic
+         signal_detect     : in std_logic;  -- Input from PMD to indicate presence of optical input.
+         gt0_txpolarity_in : in std_logic;
+         gt0_rxpolarity_in : in std_logic;
 
-      );
+         gt0_qplloutclk_in    : in std_logic;
+         gt0_qplloutrefclk_in : in std_logic
+
+         );
    end component;
 
-ATTRIBUTE CORE_GENERATION_INFO : STRING;
-ATTRIBUTE CORE_GENERATION_INFO OF wrapper : ARCHITECTURE IS "GigEthGtx7Core,gig_ethernet_pcs_pma_v16_0_1,{x_ipProduct=Vivado 2016.4,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=gig_ethernet_pcs_pma,x_ipVersion=16.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,c_elaboration_transient_dir=.,c_component_name=GigEthGtx7Core,c_family=kintex7,c_architecture=kintex7,c_is_sgmii=false,c_enable_async_sgmii=false,c_enable_async_lvds=false,c_enable_async_lvds_rx_only=false,c_use_transceiver=true,c_use_tbi=false,c_is_2_5g=false,c_use_lvds=false,c_has_an=true,characterization=false,c_has_mdio=false,c_has_ext_mdio=false,c_sgmii_phy_mode=false,c_dynamic_switching=false,c_sgmii_fabric_buffer=true,c_1588=0,gt_rx_byte_width=1,C_EMAC_IF_TEMAC=true,EXAMPLE_SIMULATION=0,c_support_level=false,c_RxNibbleBitslice0Used=false,c_tx_in_upper_nibble=1,c_TxLane0_Placement=DIFF_PAIR_0,c_TxLane1_Placement=DIFF_PAIR_1,c_RxLane0_Placement=DIFF_PAIR_0,c_RxLane1_Placement=DIFF_PAIR_1,c_sub_core_name=GigEthGtx7Core_gt,c_transceiver_type=GTXE2,c_gt_type=GTH,c_rx_gmii_clk_src=TXOUTCLK,c_transceivercontrol=false,c_gtinex=false,c_xdevicefamily=xc7k325t,c_gt_dmonitorout_width=8,c_gt_drpaddr_width=9,c_gt_txdiffctrl_width=4,c_gt_rxmonitorout_width=7,c_num_of_lanes=1,c_refclkrate=125,c_drpclkrate=50.0,c_gt_loc=X0Y0,c_refclk_src=clk0,c_enable_tx_userclk_reset_port=false}";
-ATTRIBUTE X_CORE_INFO : STRING;
-ATTRIBUTE X_CORE_INFO OF wrapper: ARCHITECTURE IS "gig_ethernet_pcs_pma_v16_0_1,Vivado 2016.4";
+   attribute CORE_GENERATION_INFO            : string;
+   attribute CORE_GENERATION_INFO of wrapper : architecture is "GigEthGtx7Core,gig_ethernet_pcs_pma_v16_0_1,{x_ipProduct=Vivado 2016.4,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=gig_ethernet_pcs_pma,x_ipVersion=16.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,c_elaboration_transient_dir=.,c_component_name=GigEthGtx7Core,c_family=kintex7,c_architecture=kintex7,c_is_sgmii=false,c_enable_async_sgmii=false,c_enable_async_lvds=false,c_enable_async_lvds_rx_only=false,c_use_transceiver=true,c_use_tbi=false,c_is_2_5g=false,c_use_lvds=false,c_has_an=true,characterization=false,c_has_mdio=false,c_has_ext_mdio=false,c_sgmii_phy_mode=false,c_dynamic_switching=false,c_sgmii_fabric_buffer=true,c_1588=0,gt_rx_byte_width=1,C_EMAC_IF_TEMAC=true,EXAMPLE_SIMULATION=0,c_support_level=false,c_RxNibbleBitslice0Used=false,c_tx_in_upper_nibble=1,c_TxLane0_Placement=DIFF_PAIR_0,c_TxLane1_Placement=DIFF_PAIR_1,c_RxLane0_Placement=DIFF_PAIR_0,c_RxLane1_Placement=DIFF_PAIR_1,c_sub_core_name=GigEthGtx7Core_gt,c_transceiver_type=GTXE2,c_gt_type=GTH,c_rx_gmii_clk_src=TXOUTCLK,c_transceivercontrol=false,c_gtinex=false,c_xdevicefamily=xc7k325t,c_gt_dmonitorout_width=8,c_gt_drpaddr_width=9,c_gt_txdiffctrl_width=4,c_gt_rxmonitorout_width=7,c_num_of_lanes=1,c_refclkrate=125,c_drpclkrate=50.0,c_gt_loc=X0Y0,c_refclk_src=clk0,c_enable_tx_userclk_reset_port=false}";
+   attribute X_CORE_INFO                     : string;
+   attribute X_CORE_INFO of wrapper          : architecture is "gig_ethernet_pcs_pma_v16_0_1,Vivado 2016.4";
 
 begin
 
 
 
-   U0 : GigEthGtx7Core_block generic map ( EXAMPLE_SIMULATION            => EXAMPLE_SIMULATION)
+   U0 : GigEthGtx7Core_block generic map (EXAMPLE_SIMULATION => EXAMPLE_SIMULATION)
       port map(
-      -- Transceiver Interface
-      ---------------------
+         -- Transceiver Interface
+         ---------------------
 
-      gtrefclk                 => gtrefclk,
-      gtrefclk_bufg            => gtrefclk_bufg,
-      txp                      => txp,
-      txn                      => txn,
-      rxp                      => rxp,
-      rxn                      => rxn,
-      resetdone                => resetdone,
-      cplllock                 => cplllock,                           -- The GT transceiver has completed its reset cycle
-      mmcm_reset               => mmcm_reset,
-      txoutclk                 => txoutclk,
-      rxoutclk                 => rxoutclk,
-      userclk                  => userclk,
-      userclk2                 => userclk2,
-      rxuserclk                => rxuserclk,
-      rxuserclk2               => rxuserclk2,
-          independent_clock_bufg => independent_clock_bufg,
-      pma_reset                => pma_reset,
-      mmcm_locked              => mmcm_locked,
-      -- GMII Interface
-      -----------------
-      gmii_txd                 => gmii_txd,
-      gmii_tx_en               => gmii_tx_en,
-      gmii_tx_er               => gmii_tx_er,
-      gmii_rxd                 => gmii_rxd,
-      gmii_rx_dv               => gmii_rx_dv,
-      gmii_rx_er               => gmii_rx_er,
-      gmii_isolate             => gmii_isolate,
+         gtrefclk               => gtrefclk,
+         gtrefclk_bufg          => gtrefclk_bufg,
+         txp                    => txp,
+         txn                    => txn,
+         rxp                    => rxp,
+         rxn                    => rxn,
+         resetdone              => resetdone,
+         cplllock               => cplllock,  -- The GT transceiver has completed its reset cycle
+         mmcm_reset             => mmcm_reset,
+         txoutclk               => txoutclk,
+         rxoutclk               => rxoutclk,
+         userclk                => userclk,
+         userclk2               => userclk2,
+         rxuserclk              => rxuserclk,
+         rxuserclk2             => rxuserclk2,
+         independent_clock_bufg => independent_clock_bufg,
+         pma_reset              => pma_reset,
+         mmcm_locked            => mmcm_locked,
+         gt0_drpaddr_in         => drpaddr_in,
+         gt0_drpclk_in          => drpclk_in,
+         gt0_drpdi_in           => drpdi_in,
+         gt0_drpdo_out          => drpdo_out,
+         gt0_drpen_in           => drpen_in,
+         gt0_drprdy_out         => drprdy_out,
+         gt0_drpwe_in           => drpwe_in,
+         -- GMII Interface
+         -----------------
+         gmii_txd               => gmii_txd,
+         gmii_tx_en             => gmii_tx_en,
+         gmii_tx_er             => gmii_tx_er,
+         gmii_rxd               => gmii_rxd,
+         gmii_rx_dv             => gmii_rx_dv,
+         gmii_rx_er             => gmii_rx_er,
+         gmii_isolate           => gmii_isolate,
 
-      -- Management: Alternative to MDIO Interface
-      --------------------------------------------
+         -- Management: Alternative to MDIO Interface
+         --------------------------------------------
 
-      configuration_vector     => configuration_vector,
+         configuration_vector => configuration_vector,
 
 
-      an_interrupt             => an_interrupt,
-      an_adv_config_vector     => an_adv_config_vector,
-      an_restart_config        => an_restart_config,
+         an_interrupt         => an_interrupt,
+         an_adv_config_vector => an_adv_config_vector,
+         an_restart_config    => an_restart_config,
 
-      -- General IO's
-      ---------------
-      status_vector             => status_vector,
-      reset                     => reset,
+         -- General IO's
+         ---------------
+         status_vector => status_vector,
+         reset         => reset,
 
-      gt0_txpolarity_in         => gt0_txpolarity_in,
-      gt0_rxpolarity_in         => gt0_rxpolarity_in,
-   
-   
+         gt0_txpolarity_in => gt0_txpolarity_in,
+         gt0_rxpolarity_in => gt0_rxpolarity_in,
 
-          signal_detect        => signal_detect,
 
-      gt0_qplloutclk_in      => gt0_qplloutclk_in,
-      gt0_qplloutrefclk_in   => gt0_qplloutrefclk_in
 
-      );
+         signal_detect => signal_detect,
+
+         gt0_qplloutclk_in    => gt0_qplloutclk_in,
+         gt0_qplloutrefclk_in => gt0_qplloutrefclk_in
+
+         );
 end wrapper;
 

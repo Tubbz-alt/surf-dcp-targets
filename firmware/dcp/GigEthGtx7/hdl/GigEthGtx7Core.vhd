@@ -158,10 +158,14 @@ entity GigEthGtx7Core is
       reset         : in  std_logic;                      -- Asynchronous reset for entire core.
 
       signal_detect        : in std_logic;  -- Input from PMD to indicate presence of optical input.
-      gt0_rxpolarity_in    : in std_logic := '0';
-      gt0_txpolarity_in    : in std_logic := '0';
+      gt0_rxpolarity_in    : in std_logic                    := '0';
+      gt0_txpolarity_in    : in std_logic                    := '0';
+      gt0_txdiffctrl_in    : in std_logic_vector(3 downto 0) := "1000";
+      gt0_txpostcursor_in  : in std_logic_vector(4 downto 0) := (others => '0');
+      gt0_txprecursor_in   : in std_logic_vector(4 downto 0) := (others => '0');
       gt0_qplloutclk_in    : in std_logic;
       gt0_qplloutrefclk_in : in std_logic
+
 
       );
 end GigEthGtx7Core;
@@ -234,10 +238,12 @@ architecture wrapper of GigEthGtx7Core is
          status_vector : out std_logic_vector(15 downto 0);  -- Core status.
          reset         : in  std_logic;                      -- Asynchronous reset for entire core.
 
-         signal_detect     : in std_logic;  -- Input from PMD to indicate presence of optical input.
-         gt0_txpolarity_in : in std_logic;
-         gt0_rxpolarity_in : in std_logic;
-
+         signal_detect        : in std_logic;  -- Input from PMD to indicate presence of optical input.
+         gt0_txpolarity_in    : in std_logic;
+         gt0_rxpolarity_in    : in std_logic;
+         gt0_txdiffctrl_in    : in std_logic_vector(3 downto 0);
+         gt0_txpostcursor_in  : in std_logic_vector(4 downto 0);
+         gt0_txprecursor_in   : in std_logic_vector(4 downto 0);
          gt0_qplloutclk_in    : in std_logic;
          gt0_qplloutrefclk_in : in std_logic
 
@@ -314,6 +320,10 @@ begin
 
 
          signal_detect => signal_detect,
+
+         gt0_txdiffctrl_in   => gt0_txdiffctrl_in,
+         gt0_txpostcursor_in => gt0_txpostcursor_in,
+         gt0_txprecursor_in  => gt0_txprecursor_in,
 
          gt0_qplloutclk_in    => gt0_qplloutclk_in,
          gt0_qplloutrefclk_in => gt0_qplloutrefclk_in

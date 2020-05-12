@@ -157,11 +157,14 @@ entity GigEthGtx7Core_block is
 
       signal_detect : in std_logic;     -- Input from PMD to indicate presence of optical input.
 
-      gt0_rxpolarity_in : in std_logic := '0';
-      gt0_txpolarity_in : in std_logic := '0';
-
+      gt0_rxpolarity_in    : in std_logic := '0';
+      gt0_txpolarity_in    : in std_logic := '0';
+      gt0_txdiffctrl_in    : in std_logic_vector(3 downto 0);
+      gt0_txpostcursor_in  : in std_logic_vector(4 downto 0);
+      gt0_txprecursor_in   : in std_logic_vector(4 downto 0);
       gt0_qplloutclk_in    : in std_logic;
       gt0_qplloutrefclk_in : in std_logic
+
       );
 end GigEthGtx7Core_block;
 
@@ -627,11 +630,11 @@ begin
          gt0_rxmonitorsel_in     => (others => '0'),
          gt0_rxcommadet_out      => open,
          gt0_txpolarity_in       => gt0_txpolarity_in,
-         gt0_txdiffctrl_in       => "1000",
+         gt0_txdiffctrl_in       => gt0_txdiffctrl_in,
 
          gt0_txinhibit_in         => '0',
-         gt0_txpostcursor_in      => (others => '0'),
-         gt0_txprecursor_in       => (others => '0'),
+         gt0_txpostcursor_in      => gt0_txpostcursor_in,
+         gt0_txprecursor_in       => gt0_txprecursor_in,
          gt0_rxpolarity_in        => gt0_rxpolarity_in,
          gt0_rxdfelpmreset_in     => '0',
          gt0_rxlpmen_in           => '1',
